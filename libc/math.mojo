@@ -59,3 +59,24 @@ fn acos(x: Float64) -> Float64:
         Арккосинус в диапазоне (0, π). Для конечных значений вне диапазона [-1, 1], функция возвращает nan.
     """
     return external_call["acos", Float64, Float64](x)
+
+
+fn acosf(x: Float32) -> Float32:
+    """C library <math.h> function `acosf`
+
+    Ссылка:
+        https://man7.org/linux/man-pages/man3/acos.3.html
+
+    Прототип:
+        float acosf(float x)
+
+    Описание:
+        Вычисляет арккосинус x (заданного в радианах).
+
+    Аргументы:
+        Косинус, для которого требуется найти угол.
+
+    Возвращаемое значение:
+        Арккосинус в диапазоне (0, π). Для конечных значений вне диапазона [-1, 1], функция возвращает nan.
+    """
+    return external_call["acosf", Float32, Float32](x)
