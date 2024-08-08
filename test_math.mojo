@@ -1,6 +1,6 @@
 from testing import assert_equal, assert_true, assert_false
 
-from libc.math import asin, asinf, acos, acosf, atan, atanf, sin, sinf
+from libc.math import asin, asinf, acos, acosf, atan, atanf, sin, sinf, cos
 
 from math.math import isclose, isnan
 
@@ -86,3 +86,15 @@ fn test_sinf() raises:
     assert_true(isclose(sinf(5 * pi / 6), 0.5))
     assert_true(isclose(sinf(7 * pi / 6), -0.5))
     assert_true(isclose(sinf(11 * pi / 6), -0.5))
+
+
+fn test_cos() raises:
+    assert_true(isclose(cos(pi / 2), 0))
+    assert_true(isclose(cos(3 * pi / 2), 0))
+    assert_equal(cos(0), 1)
+    assert_true(isclose(cos(2 * pi), 1))
+    assert_true(isclose(cos(pi), -1))
+    assert_true(isclose(cos(pi / 3), 0.5))
+    assert_true(isclose(cos(5 * pi / 3), 0.5))
+    assert_true(isclose(cos(2 * pi / 3), -0.5))
+    assert_true(isclose(cos(4 * pi / 3), -0.5))

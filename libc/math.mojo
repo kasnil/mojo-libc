@@ -164,3 +164,24 @@ fn sinf(x: Float32) -> Float32:
         Значение синуса.
     """
     return external_call["sinf", Float32, Float32](x)
+
+
+fn cos(x: Float64) -> Float64:
+    """C library <math.h> function `cos`
+
+    Ссылка:
+        https://man7.org/linux/man-pages/man3/cos.3.html
+
+    Прототип:
+        double cos(double x)
+
+    Описание:
+        Вычисляет вычисляют косинус x (заданного в радианах).
+
+    Аргументы:
+        x: Угол в радианах для которого требуется вычислить косинус.
+
+    Возвращаемое значение:
+        Косинус x.
+    """
+    return external_call["cos", Float64, Float64](x)
