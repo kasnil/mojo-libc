@@ -1,6 +1,6 @@
 from testing import assert_equal, assert_true, assert_false
 
-from libc.math import asin, asinf, acos, acosf, atan, atanf
+from libc.math import asin, asinf, acos, acosf, atan, atanf, sin
 
 from math.math import isclose, isnan
 
@@ -61,3 +61,15 @@ fn test_atanf() raises:
     assert_equal(atanf(0), 0)
 
     assert_false(isnan(atanf(1.0)))
+
+
+fn test_sin() raises:
+    assert_equal(sin(0), 0)
+    assert_true(isclose(sin(pi), 0))
+    assert_true(isclose(sin(2 * pi), 0))
+    assert_true(isclose(sin(pi / 2), 1))
+    assert_true(isclose(sin(3 * pi / 2), -1))
+    assert_true(isclose(sin(pi / 6), 0.5))
+    assert_true(isclose(sin(5 * pi / 6), 0.5))
+    assert_true(isclose(sin(7 * pi / 6), -0.5))
+    assert_true(isclose(sin(11 * pi / 6), -0.5))
