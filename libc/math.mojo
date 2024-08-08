@@ -269,3 +269,24 @@ fn asinh(x: Float64) -> Float64:
         Обратный гиперболический синус x (заданного в радианах).
     """
     return external_call["asinh", Float64, Float64](x)
+
+
+fn asinhf(x: Float32) -> Float32:
+    """C library <math.h> function `asinhf`
+
+    Ссылка:
+        https://man7.org/linux/man-pages/man3/asinh.3.html
+
+    Прототип:
+        float asinhf(float x)
+
+    Описание:
+        Вычисляет обратный гиперболический синус x (заданного в радианах).
+
+    Аргументы:
+        x: Значение для которого требуется вычислить обратный гиперболический синус.
+
+    Возвращаемое значение:
+        Обратный гиперболический синус x (заданного в радианах).
+    """
+    return external_call["asinhf", Float32, Float32](x)

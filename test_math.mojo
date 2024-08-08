@@ -14,6 +14,7 @@ from libc.math import (
     tan,
     tanf,
     asinh,
+    asinhf,
 )
 
 from math.math import isclose
@@ -161,3 +162,9 @@ fn test_asinh() raises:
     assert_equal(asinh(0), 0)
     assert_true(asinh(1) > 0)
     assert_true(asinh(-1) < 0)
+
+
+fn test_asinhf() raises:
+    assert_equal(asinhf(0), 0)
+    assert_true(asinhf(1) > 0)
+    assert_true(asinhf(-1) < 0)
