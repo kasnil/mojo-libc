@@ -11,6 +11,7 @@ from libc.math import (
     sinf,
     cos,
     cosf,
+    tan,
 )
 
 from math.math import isclose, isnan
@@ -122,3 +123,17 @@ fn test_cosf() raises:
     assert_true(isclose(cosf(5 * pi / 3), 0.5))
     assert_true(isclose(cosf(2 * pi / 3), -0.5))
     assert_true(isclose(cosf(4 * pi / 3), -0.5))
+
+
+fn test_tan() raises:
+    assert_equal(tan(0), 0)
+    assert_true(isclose(tan(pi), 0))
+    assert_true(isclose(tan(2 * pi), 0))
+    assert_true(isclose(tan(pi / 4), 1))
+    assert_true(isclose(tan(5 * pi / 4), 1))
+    assert_true(isclose(tan(3 * pi / 4), -1))
+    assert_true(isclose(tan(7 * pi / 4), -1))
+    assert_true(isclose(tan(pi / 3), 3.0**0.5))
+    assert_true(isclose(tan(4 * pi / 3), 3.0**0.5))
+    assert_true(isclose(tan(2 * pi / 3), -(3.0**0.5)))
+    assert_true(isclose(tan(5 * pi / 3), -(3.0**0.5)))
