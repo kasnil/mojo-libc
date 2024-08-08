@@ -332,3 +332,24 @@ fn acoshf(x: Float32) -> Float32:
         Обратный гиперболический косинус x (заданного в радианах). Для конечных значений x < 1, эти функции возвращают nan.
     """
     return external_call["acoshf", Float32, Float32](x)
+
+
+fn atanh(x: Float64) -> Float64:
+    """C library <math.h> function `atanh`
+
+    Ссылка:
+        https://man7.org/linux/man-pages/man3/atanh.3.html
+
+    Прототип:
+        double atanh(double x)
+
+    Описание:
+        Вычисляет обратный гиперболический тангенс x (заданного в радианах).
+
+    Аргументы:
+        x: Значение для которого требуется вычислить обратный гиперболический тангенс.
+
+    Возвращаемое значение:
+        Обратный гиперболический тангенс x (заданного в радианах).
+    """
+    return external_call["atanh", Float64, Float64](x)
