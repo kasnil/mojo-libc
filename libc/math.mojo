@@ -143,3 +143,24 @@ fn sin(x: Float64) -> Float64:
         Значение синуса.
     """
     return external_call["sin", Float64, Float64](x)
+
+
+fn sinf(x: Float32) -> Float32:
+    """C library <math.h> function `sinf`
+
+    Ссылка:
+        https://man7.org/linux/man-pages/man3/sin.3.html
+
+    Прототип:
+        float sinf(float x)
+
+    Описание:
+        Вычисляет синус x (заданного в радианах). При вызове с аргументом, имеющим большое значение, возможны незначительные погрешности.
+
+    Аргументы:
+        x: Угол в радианах, для которого требуется вычислить синус.
+
+    Возвращаемое значение:
+        Значение синуса.
+    """
+    return external_call["sinf", Float32, Float32](x)
