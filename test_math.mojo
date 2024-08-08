@@ -20,6 +20,7 @@ from libc.math import (
     atanh,
     atanhf,
     atan2,
+    atan2f,
 )
 
 from math.math import isclose
@@ -204,3 +205,8 @@ fn test_atanhf() raises:
 fn test_atan2() raises:
     assert_equal(atan2(0, 0), 0)
     assert_true(isclose(atan2(3, 5), 0.54, atol=0.001))
+
+
+fn test_atan2f() raises:
+    assert_equal(atan2f(0, 0), 0)
+    assert_true(isclose(atan2f(3, 5), 0.54, atol=0.001))
