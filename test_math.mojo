@@ -12,6 +12,7 @@ from libc.math import (
     cos,
     cosf,
     tan,
+    tanf,
 )
 
 from math.math import isclose, isnan
@@ -137,3 +138,18 @@ fn test_tan() raises:
     assert_true(isclose(tan(4 * pi / 3), 3.0**0.5))
     assert_true(isclose(tan(2 * pi / 3), -(3.0**0.5)))
     assert_true(isclose(tan(5 * pi / 3), -(3.0**0.5)))
+
+
+fn test_tanf() raises:
+    alias atol = 0.000001
+    assert_equal(tanf(0), 0)
+    assert_true(isclose(tanf(pi), 0, atol=atol))
+    assert_true(isclose(tanf(2 * pi), 0, atol=atol))
+    assert_true(isclose(tanf(pi / 4), 1))
+    assert_true(isclose(tanf(5 * pi / 4), 1))
+    assert_true(isclose(tanf(3 * pi / 4), -1))
+    assert_true(isclose(tanf(7 * pi / 4), -1))
+    assert_true(isclose(tanf(pi / 3), 3.0**0.5))
+    assert_true(isclose(tanf(4 * pi / 3), 3.0**0.5))
+    assert_true(isclose(tanf(2 * pi / 3), -(3.0**0.5)))
+    assert_true(isclose(tanf(5 * pi / 3), -(3.0**0.5)))

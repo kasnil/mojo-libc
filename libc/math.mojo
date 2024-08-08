@@ -227,3 +227,24 @@ fn tan(x: Float64) -> Float64:
         Значение тангенса.
     """
     return external_call["tan", Float64, Float64](x)
+
+
+fn tanf(x: Float32) -> Float32:
+    """C library <math.h> function `tanf`
+
+    Ссылка:
+        https://man7.org/linux/man-pages/man3/tan.3.html
+
+    Прототип:
+        float tanf(float x)
+
+    Описание:
+        Вычисляет тангенс x (заданного в радианах). При вызове с аргументом, имеющим большое значение, возможны незначительные погрешности.
+
+    Аргументы:
+        x: Угол в радианах, для которого требуется вычислить тангенс.
+
+    Возвращаемое значение:
+        Значение тангенса.
+    """
+    return external_call["tanf", Float32, Float32](x)
