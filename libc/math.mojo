@@ -101,3 +101,24 @@ fn atan(x: Float64) -> Float64:
         Арктангенс в диапазоне (-π/2, π/2).
     """
     return external_call["atan", Float64, Float64](x)
+
+
+fn atanf(x: Float32) -> Float32:
+    """C library <math.h> function `atan`
+
+    Ссылка:
+        https://man7.org/linux/man-pages/man3/atan.3.html
+
+    Прототип:
+        float atanf(float x)
+
+    Описание:
+        Вычисляет арктангенс x (заданного в радианах).
+
+    Аргументы:
+        x: Угол в радианах.
+
+    Возвращаемое значение:
+        Арктангенс в диапазоне (-π/2, π/2).
+    """
+    return external_call["atanf", Float32, Float32](x)
