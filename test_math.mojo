@@ -18,6 +18,7 @@ from libc.math import (
     acosh,
     acoshf,
     atanh,
+    atanhf,
 )
 
 from math.math import isclose
@@ -189,3 +190,11 @@ fn test_atanh() raises:
     assert_true(atanh(-1) < 0)
     assert_equal(atanh(42), 1)
     assert_equal(atanh(-42), -1)
+
+
+fn test_atanhf() raises:
+    assert_equal(atanhf(0), 0)
+    assert_true(atanhf(1) > 0)
+    assert_true(atanhf(-1) < 0)
+    assert_equal(atanhf(42), 1)
+    assert_equal(atanhf(-42), -1)

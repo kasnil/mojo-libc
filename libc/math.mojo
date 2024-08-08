@@ -353,3 +353,24 @@ fn atanh(x: Float64) -> Float64:
         Обратный гиперболический тангенс x (заданного в радианах).
     """
     return external_call["atanh", Float64, Float64](x)
+
+
+fn atanhf(x: Float32) -> Float32:
+    """C library <math.h> function `atanhf`
+
+    Ссылка:
+        https://man7.org/linux/man-pages/man3/atanh.3.html
+
+    Прототип:
+        float atanhf(float x)
+
+    Описание:
+        Вычисляет обратный гиперболический тангенс x (заданного в радианах).
+
+    Аргументы:
+        x: Значение для которого требуется вычислить обратный гиперболический тангенс.
+
+    Возвращаемое значение:
+        Обратный гиперболический тангенс x (заданного в радианах).
+    """
+    return external_call["atanhf", Float32, Float32](x)
