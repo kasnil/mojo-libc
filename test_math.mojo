@@ -1,6 +1,6 @@
 from testing import assert_equal, assert_true, assert_false
 
-from libc.math import asin, asinf, acos, acosf
+from libc.math import asin, asinf, acos, acosf, atan
 
 from math.math import isclose, isnan
 
@@ -49,3 +49,9 @@ fn test_acosf() raises:
 
     assert_true(isnan(acosf(-1.01)))
     assert_true(isnan(acosf(1.01)))
+
+
+fn test_atan() raises:
+    assert_equal(atan(0), 0)
+
+    assert_false(isnan(atan(1.0)))
