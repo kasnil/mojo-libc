@@ -185,3 +185,24 @@ fn cos(x: Float64) -> Float64:
         Косинус x.
     """
     return external_call["cos", Float64, Float64](x)
+
+
+fn cosf(x: Float32) -> Float32:
+    """C library <math.h> function `cosf`
+
+    Ссылка:
+        https://man7.org/linux/man-pages/man3/cos.3.html
+
+    Прототип:
+        float cosf(float x)
+
+    Описание:
+        Вычисляет вычисляют косинус x (заданного в радианах).
+
+    Аргументы:
+        x: Угол в радианах для которого требуется вычислить косинус.
+
+    Возвращаемое значение:
+        Косинус x.
+    """
+    return external_call["cosf", Float32, Float32](x)
