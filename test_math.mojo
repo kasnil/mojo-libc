@@ -13,9 +13,11 @@ from libc.math import (
     cosf,
     tan,
     tanf,
+    asinh,
 )
 
-from math.math import isclose, isnan
+from math.math import isclose
+from utils.numerics import isnan, isinf
 
 alias pi: Float64 = 3.14159265358979323
 
@@ -153,3 +155,9 @@ fn test_tanf() raises:
     assert_true(isclose(tanf(4 * pi / 3), 3.0**0.5))
     assert_true(isclose(tanf(2 * pi / 3), -(3.0**0.5)))
     assert_true(isclose(tanf(5 * pi / 3), -(3.0**0.5)))
+
+
+fn test_asinh() raises:
+    assert_equal(asinh(0), 0)
+    assert_true(asinh(1) > 0)
+    assert_true(asinh(-1) < 0)
