@@ -38,3 +38,24 @@ fn asinf(x: Float32) -> Float32:
         Арксинус в диапазоне (-π/2, π/2). Для конечных значений вне диапазона [-1, 1], функция возвращает nan.
     """
     return external_call["asinf", Float32, Float32](x)
+
+
+fn acos(x: Float64) -> Float64:
+    """C library <math.h> function `acos`
+
+    Ссылка:
+        https://man7.org/linux/man-pages/man3/acos.3.html
+
+    Прототип:
+        double acos(double x)
+
+    Описание:
+        Вычисляет арккосинус x (заданного в радианах).
+
+    Аргументы:
+        Косинус, для которого требуется найти угол.
+
+    Возвращаемое значение:
+        Арккосинус в диапазоне (0, π). Для конечных значений вне диапазона [-1, 1], функция возвращает nan.
+    """
+    return external_call["acos", Float64, Float64](x)
