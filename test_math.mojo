@@ -1,4 +1,4 @@
-from testing import assert_equal, assert_true, assert_false
+from testing import assert_equal, assert_true
 
 from libc.math import (
     asin,
@@ -15,10 +15,11 @@ from libc.math import (
     tanf,
     asinh,
     asinhf,
+    acosh,
 )
 
 from math.math import isclose
-from utils.numerics import isnan, isinf
+from utils.numerics import isnan, isinf, isfinite
 
 alias pi: Float64 = 3.14159265358979323
 
@@ -28,7 +29,7 @@ fn test_asin() raises:
     assert_true(isclose(asin(-1.0), -pi / 2))
     assert_true(isclose(asin(1.0), pi / 2))
 
-    assert_false(isnan(asin(1.0)))
+    assert_true(isfinite(asin(1.0)))
 
     assert_true(isnan(asin(-1.01)))
     assert_true(isnan(asin(1.01)))
@@ -39,7 +40,7 @@ fn test_asinf() raises:
     assert_true(isclose(asinf(-1.0), -pi / 2))
     assert_true(isclose(asinf(1.0), pi / 2))
 
-    assert_false(isnan(asinf(1.0)))
+    assert_true(isfinite(asinf(1.0)))
 
     assert_true(isnan(asinf(-1.01)))
     assert_true(isnan(asinf(1.01)))
@@ -50,7 +51,7 @@ fn test_acos() raises:
     assert_true(isclose(acos(0), pi / 2))
     assert_true(isclose(acos(-1.0), pi))
 
-    assert_false(isnan(acos(1.0)))
+    assert_true(isfinite(acos(1.0)))
 
     assert_true(isnan(acos(-1.01)))
     assert_true(isnan(acos(1.01)))
@@ -61,7 +62,7 @@ fn test_acosf() raises:
     assert_true(isclose(acos(0), pi / 2))
     assert_true(isclose(acosf(-1.0), pi))
 
-    assert_false(isnan(acosf(1.0)))
+    assert_true(isfinite(acosf(1.0)))
 
     assert_true(isnan(acosf(-1.01)))
     assert_true(isnan(acosf(1.01)))
@@ -70,13 +71,13 @@ fn test_acosf() raises:
 fn test_atan() raises:
     assert_equal(atan(0), 0)
 
-    assert_false(isnan(atan(1.0)))
+    assert_true(isfinite(atan(1.0)))
 
 
 fn test_atanf() raises:
     assert_equal(atanf(0), 0)
 
-    assert_false(isnan(atanf(1.0)))
+    assert_true(isfinite(atanf(1.0)))
 
 
 fn test_sin() raises:
@@ -168,3 +169,8 @@ fn test_asinhf() raises:
     assert_equal(asinhf(0), 0)
     assert_true(asinhf(1) > 0)
     assert_true(asinhf(-1) < 0)
+
+
+fn test_acosh() raises:
+    assert_true(isfinite(acosh(1)))
+    assert_true(isnan(acosh(0)))

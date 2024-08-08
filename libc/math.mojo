@@ -290,3 +290,24 @@ fn asinhf(x: Float32) -> Float32:
         Обратный гиперболический синус x (заданного в радианах).
     """
     return external_call["asinhf", Float32, Float32](x)
+
+
+fn acosh(x: Float64) -> Float64:
+    """C library <math.h> function `acosh`
+
+    Ссылка:
+        https://man7.org/linux/man-pages/man3/acosh.3.html
+
+    Прототип:
+        double acosh(double x)
+
+    Описание:
+        Вычисляет обратный гиперболический косинус x (заданного в радианах).
+
+    Аргументы:
+        x: Значение для которого требуется вычислить обратный гиперболический косинус.
+
+    Возвращаемое значение:
+        Обратный гиперболический косинус x (заданного в радианах). Для конечных значений x < 1, эти функции возвращают nan.
+    """
+    return external_call["acosh", Float64, Float64](x)
