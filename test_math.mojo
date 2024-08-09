@@ -24,6 +24,7 @@ from libc.math import (
     ceil,
     ceilf,
     floor,
+    floorf,
 )
 
 from math.math import isclose
@@ -245,3 +246,15 @@ fn test_floor() raises:
         floor(min_finite[DType.float64]()), min_finite[DType.float64]()
     )
     assert_equal(floor(-2.2), -3)
+
+
+fn test_floorf() raises:
+    assert_equal(floorf(0), 0)
+    assert_equal(floorf(2.2), 2)
+    assert_equal(
+        floorf(max_finite[DType.float64]()), max_finite[DType.float64]()
+    )
+    assert_equal(
+        floorf(min_finite[DType.float64]()), min_finite[DType.float64]()
+    )
+    assert_equal(floorf(-2.2), -3)
