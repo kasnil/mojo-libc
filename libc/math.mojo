@@ -439,3 +439,24 @@ fn ceil(x: Float64) -> Float64:
         Наименьшее целое число ≥ x.
     """
     return external_call["ceil", Float64, Float64](x)
+
+
+fn ceilf(x: Float32) -> Float32:
+    """C library <math.h> function `ceilf`
+
+    Ссылка:
+        https://man7.org/linux/man-pages/man3/ceil.3.html
+
+    Прототип:
+        float ceilf(float x)
+
+    Описание:
+        Округляет значение x до ближайшего следующего целого числа (в большую сторону).
+
+    Аргументы:
+        x: Число, которое требутся округлить.
+
+    Возвращаемое значение:
+        Наименьшее целое число ≥ x.
+    """
+    return external_call["ceilf", Float32, Float32](x)

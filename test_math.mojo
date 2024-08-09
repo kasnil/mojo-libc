@@ -22,6 +22,7 @@ from libc.math import (
     atan2,
     atan2f,
     ceil,
+    ceilf,
 )
 
 from math.math import isclose
@@ -219,3 +220,15 @@ fn test_ceil() raises:
     assert_equal(ceil(max_finite[DType.float64]()), max_finite[DType.float64]())
     assert_equal(ceil(min_finite[DType.float64]()), min_finite[DType.float64]())
     assert_equal(ceil(-2.2), -2)
+
+
+fn test_ceilf() raises:
+    assert_equal(ceilf(0), 0)
+    assert_equal(ceilf(2.2), 3)
+    assert_equal(
+        ceilf(max_finite[DType.float32]()), max_finite[DType.float32]()
+    )
+    assert_equal(
+        ceilf(min_finite[DType.float32]()), min_finite[DType.float32]()
+    )
+    assert_equal(ceilf(-2.2), -2)
