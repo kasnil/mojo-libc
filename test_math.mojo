@@ -25,6 +25,7 @@ from libc.math import (
     ceilf,
     floor,
     floorf,
+    round,
 )
 
 from math.math import isclose
@@ -258,3 +259,13 @@ fn test_floorf() raises:
         floorf(min_finite[DType.float64]()), min_finite[DType.float64]()
     )
     assert_equal(floorf(-2.2), -3)
+
+
+fn test_round() raises:
+    assert_equal(round(0), 0)
+    assert_equal(round(2.2), 2)
+    assert_equal(round(-2.2), -2)
+    assert_equal(round(2.8), 3)
+    assert_equal(round(-2.8), -3)
+    assert_equal(round(2.5), 3)
+    assert_equal(round(-2.5), -3)
