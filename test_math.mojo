@@ -26,6 +26,7 @@ from libc.math import (
     floor,
     floorf,
     round,
+    roundf,
 )
 
 from math.math import isclose
@@ -269,3 +270,13 @@ fn test_round() raises:
     assert_equal(round(-2.8), -3)
     assert_equal(round(2.5), 3)
     assert_equal(round(-2.5), -3)
+
+
+fn test_roundf() raises:
+    assert_equal(roundf(0), 0)
+    assert_equal(roundf(2.2), 2)
+    assert_equal(roundf(-2.2), -2)
+    assert_equal(roundf(2.8), 3)
+    assert_equal(roundf(-2.8), -3)
+    assert_equal(roundf(2.5), 3)
+    assert_equal(roundf(-2.5), -3)
