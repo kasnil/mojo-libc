@@ -23,6 +23,7 @@ from libc.math import (
     atan2f,
     ceil,
     ceilf,
+    floor,
 )
 
 from math.math import isclose
@@ -232,3 +233,15 @@ fn test_ceilf() raises:
         ceilf(min_finite[DType.float32]()), min_finite[DType.float32]()
     )
     assert_equal(ceilf(-2.2), -2)
+
+
+fn test_floor() raises:
+    assert_equal(floor(0), 0)
+    assert_equal(floor(2.2), 2)
+    assert_equal(
+        floor(max_finite[DType.float64]()), max_finite[DType.float64]()
+    )
+    assert_equal(
+        floor(min_finite[DType.float64]()), min_finite[DType.float64]()
+    )
+    assert_equal(floor(-2.2), -3)

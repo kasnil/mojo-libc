@@ -460,3 +460,24 @@ fn ceilf(x: Float32) -> Float32:
         Наименьшее целое число ≥ x.
     """
     return external_call["ceilf", Float32, Float32](x)
+
+
+fn floor(x: Float64) -> Float64:
+    """C library <math.h> function `floor`
+
+    Ссылка:
+        https://man7.org/linux/man-pages/man3/floor.3.html
+
+    Прототип:
+        double floor(double x)
+
+    Описание:
+        Вычисляет наибольшее целое число ≤ x (округление в меньшую сторону).
+
+    Аргументы:
+        x: Число, которое требутся округлить.
+
+    Возвращаемое значение:
+        Наибольшее целое число ≤ x.
+    """
+    return external_call["floor", Float64, Float64](x)
