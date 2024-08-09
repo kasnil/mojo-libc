@@ -418,3 +418,24 @@ fn atan2f(y: Float32, x: Float32) -> Float32:
         Арктангенс y/x, в диапазоне (-π, π).
     """
     return external_call["atan2f", Float32, Float32, Float32](y, x)
+
+
+fn ceil(x: Float64) -> Float64:
+    """C library <math.h> function `ceil`
+
+    Ссылка:
+        https://man7.org/linux/man-pages/man3/ceil.3.html
+
+    Прототип:
+        double ceil(double x)
+
+    Описание:
+        Округляет значение x до ближайшего следующего целого числа (в большую сторону).
+
+    Аргументы:
+        x: Число, которое требутся округлить.
+
+    Возвращаемое значение:
+        Наименьшее целое число ≥ x.
+    """
+    return external_call["ceil", Float64, Float64](x)

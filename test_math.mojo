@@ -21,10 +21,11 @@ from libc.math import (
     atanhf,
     atan2,
     atan2f,
+    ceil,
 )
 
 from math.math import isclose
-from utils.numerics import isnan, isinf, isfinite
+from utils.numerics import isnan, isinf, isfinite, max_finite, min_finite
 
 alias pi: Float64 = 3.14159265358979323
 
@@ -210,3 +211,11 @@ fn test_atan2() raises:
 fn test_atan2f() raises:
     assert_equal(atan2f(0, 0), 0)
     assert_true(isclose(atan2f(3, 5), 0.54, atol=0.001))
+
+
+fn test_ceil() raises:
+    assert_equal(ceil(0), 0)
+    assert_equal(ceil(2.2), 3)
+    assert_equal(ceil(max_finite[DType.float64]()), max_finite[DType.float64]())
+    assert_equal(ceil(min_finite[DType.float64]()), min_finite[DType.float64]())
+    assert_equal(ceil(-2.2), -2)
