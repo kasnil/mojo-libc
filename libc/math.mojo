@@ -504,6 +504,27 @@ fn coshf(x: Float32) -> Float32:
     return external_call["coshf", Float32, Float32](x)
 
 
+fn tanh(x: Float64) -> Float64:
+    """C library <math.h> function `tanh`
+
+    Ссылка:
+        https://man7.org/linux/man-pages/man3/tanh.3.html
+
+    Прототип:
+        double tanh(double x)
+
+    Описание:
+        Вычисляет гиперболический тангенс x (заданного в радианах). При больших значениях x, возможна полная или частичная потеря точности.
+
+    Аргументы:
+        x: Угол в радианах, для которого требуется вычислить гиперболический тангенс.
+
+    Возвращаемое значение:
+        Значение гиперболического тангенса.
+    """
+    return external_call["tanh", Float64, Float64](x)
+
+
 fn ceil(x: Float64) -> Float64:
     """C library <math.h> function `ceil`
 
