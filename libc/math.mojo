@@ -630,6 +630,27 @@ fn logf(x: Float32) -> Float32:
     return external_call["logf", Float32, Float32](x)
 
 
+fn log10(x: Float64) -> Float64:
+    """C library <math.h> function `log10`
+
+    Ссылка:
+        https://man7.org/linux/man-pages/man3/log10.3.html
+
+    Прототип:
+        double log10(double x)
+
+    Описание:
+        Вычисляет логафрим по основанию 10 числа x: log₁₀ x. Ошибка определения функции возникает при отрицательных x. Ошибка выхода за границы диапазона возникает при x равном нулю.
+
+    Аргументы:
+        x: Число, от которого требуется вычислить логарифм.
+
+    Возвращаемое значение:
+        Логарифм по оснвоанию 10 числа x. Для конечных значений x меньше нуля, данные функции возвращают nan.
+    """
+    return external_call["log10", Float64, Float64](x)
+
+
 fn ceil(x: Float64) -> Float64:
     """C library <math.h> function `ceil`
 

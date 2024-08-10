@@ -31,6 +31,7 @@ from libc.math import (
     expf,
     log,
     logf,
+    log10,
     ceil,
     ceilf,
     floor,
@@ -290,6 +291,9 @@ fn test_expf() raises:
 fn test_log() raises:
     assert_true(isnan(log(-1)))
     assert_true(isinf(log(0)))
+    assert_equal(log(1), 0)
+    assert_true(isclose(log(e), 1))
+    assert_true(isclose(log(e**2), 2))
     assert_true(isclose(log(4 * 3), log(4) + log(3)))
     assert_true(isclose(log(4 / 3), log(4) - log(3)))
     assert_true(isclose(log(4**3), 3 * log(4)))
@@ -298,9 +302,26 @@ fn test_log() raises:
 fn test_logf() raises:
     assert_true(isnan(logf(-1)))
     assert_true(isinf(logf(0)))
+    assert_equal(logf(1), 0)
+    assert_true(isclose(logf(e), 1))
+    assert_true(isclose(logf(e**2), 2))
     assert_true(isclose(logf(4 * 3), logf(4) + logf(3)))
     assert_true(isclose(logf(4 / 3), logf(4) - logf(3)))
     assert_true(isclose(logf(4**3), 3 * logf(4)))
+
+
+fn test_log10() raises:
+    assert_true(isnan(log10(-1)))
+    assert_true(isinf(log10(0)))
+    assert_equal(log10(1), 0)
+    assert_equal(log10(10), 1)
+    assert_equal(log10(100), 2)
+    assert_equal(log10(1_000_000), 6)
+    assert_equal(log10(0.1), -1)
+    assert_equal(log10(0.001), -3)
+    assert_true(isclose(log10(4 * 3), log10(4) + log10(3)))
+    assert_true(isclose(log10(4 / 3), log10(4) - log10(3)))
+    assert_true(isclose(log10(4**3), 3 * log10(4)))
 
 
 fn test_ceil() raises:
