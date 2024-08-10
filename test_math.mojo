@@ -21,6 +21,7 @@ from libc.math import (
     atanhf,
     atan2,
     atan2f,
+    sinh,
     ceil,
     ceilf,
     floor,
@@ -216,6 +217,12 @@ fn test_atan2() raises:
 fn test_atan2f() raises:
     assert_equal(atan2f(0, 0), 0)
     assert_true(isclose(atan2f(3, 5), 0.54, atol=0.001))
+
+
+fn test_sinh() raises:
+    assert_equal(sinh(0), 0)
+    assert_true(sinh(1) > 0)
+    assert_true(sinh(-1) < 0)
 
 
 fn test_ceil() raises:

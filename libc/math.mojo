@@ -420,6 +420,27 @@ fn atan2f(y: Float32, x: Float32) -> Float32:
     return external_call["atan2f", Float32, Float32, Float32](y, x)
 
 
+fn sinh(x: Float64) -> Float64:
+    """C library <math.h> function `sinh`
+
+    Ссылка:
+        https://man7.org/linux/man-pages/man3/sinh.3.html
+
+    Прототип:
+        double sinh(double x)
+
+    Описание:
+        Вычисляет гиперболический синус x (заданного в радианах). Ошибка диапазона возникает при слишком большом значении x.
+
+    Аргументы:
+        x: Угол в радианах, для которого требуется вычислить гиперболический синус.
+
+    Возвращаемое значение:
+        Значение гиперболического синуса.
+    """
+    return external_call["sinh", Float64, Float64](x)
+
+
 fn ceil(x: Float64) -> Float64:
     """C library <math.h> function `ceil`
 
