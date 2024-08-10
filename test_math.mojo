@@ -29,6 +29,7 @@ from libc.math import (
     tanhf,
     exp,
     expf,
+    log2,
     log,
     logf,
     log10,
@@ -287,6 +288,19 @@ fn test_exp() raises:
 fn test_expf() raises:
     assert_equal(expf(0), 1)
     assert_true(isclose(expf(1), e))
+
+
+fn test_log2() raises:
+    assert_true(isnan(log2(-1)))
+    assert_true(isinf(log2(0)))
+    assert_equal(log2(1), 0)
+    assert_equal(log2(2), 1)
+    assert_equal(log2(16), 4)
+    assert_equal(log2(0.5), -1)
+    assert_equal(log2(1 / 256), -8)
+    assert_true(isclose(log2(4 * 3), log2(4) + log2(3)))
+    assert_true(isclose(log2(4 / 3), log2(4) - log2(3)))
+    assert_true(isclose(log2(4**3), 3 * log2(4)))
 
 
 fn test_log() raises:

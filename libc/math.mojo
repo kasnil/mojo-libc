@@ -588,6 +588,27 @@ fn expf(x: Float32) -> Float32:
     return external_call["expf", Float32, Float32](x)
 
 
+fn log2(x: Float64) -> Float64:
+    """C library <math.h> function `log2`
+
+    Ссылка:
+        https://man7.org/linux/man-pages/man3/log2.3.html
+
+    Прототип:
+        double log2(double x)
+
+    Описание:
+        Вычисляет двоичный логафрим (по основанию 2) числа x: log₂ x. Ошибка определения функции возникает при отрицательных x. Ошибка выхода за границы диапазона возникает при x равном нулю.
+
+    Аргументы:
+        x: Число, от которого требуется вычислить двоичный логарифм.
+
+    Возвращаемое значение:
+        Двоичный логарифм x. Для конечных значений x меньше нуля, данные функции возвращают nan. Ошибка выхода за границы диапазона возникает при x равном нулю.
+    """
+    return external_call["log2", Float64, Float64](x)
+
+
 fn log(x: Float64) -> Float64:
     """C library <math.h> function `log`
 
