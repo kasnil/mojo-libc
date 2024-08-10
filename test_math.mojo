@@ -30,6 +30,7 @@ from libc.math import (
     exp,
     expf,
     log,
+    logf,
     ceil,
     ceilf,
     floor,
@@ -42,6 +43,7 @@ from math.math import isclose
 from utils.numerics import isnan, isinf, isfinite, max_finite, min_finite
 
 alias pi: Float64 = 3.14159265358979323
+alias e: Float64 = 2.71828182845904523
 
 
 fn test_asin() raises:
@@ -277,10 +279,12 @@ fn test_tanhf() raises:
 
 fn test_exp() raises:
     assert_equal(exp(0), 1)
+    assert_true(isclose(exp(1), e))
 
 
 fn test_expf() raises:
     assert_equal(expf(0), 1)
+    assert_true(isclose(expf(1), e))
 
 
 fn test_log() raises:
@@ -289,6 +293,14 @@ fn test_log() raises:
     assert_true(isclose(log(4 * 3), log(4) + log(3)))
     assert_true(isclose(log(4 / 3), log(4) - log(3)))
     assert_true(isclose(log(4**3), 3 * log(4)))
+
+
+fn test_logf() raises:
+    assert_true(isnan(logf(-1)))
+    assert_true(isinf(logf(0)))
+    assert_true(isclose(logf(4 * 3), logf(4) + logf(3)))
+    assert_true(isclose(logf(4 / 3), logf(4) - logf(3)))
+    assert_true(isclose(logf(4**3), 3 * logf(4)))
 
 
 fn test_ceil() raises:
