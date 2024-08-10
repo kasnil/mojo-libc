@@ -546,6 +546,27 @@ fn tanhf(x: Float32) -> Float32:
     return external_call["tanhf", Float32, Float32](x)
 
 
+fn exp(x: Float64) -> Float64:
+    """C library <math.h> function `exp`
+
+    Ссылка:
+        https://man7.org/linux/man-pages/man3/exp.3.html
+
+    Прототип:
+        double exp(double x)
+
+    Описание:
+        Вычисляет экспоненциальную функцию от числа n: (eⁿ). Ошибка диапазона возникает при слишком больших значениях числа n.
+
+    Аргументы:
+        x: Число, для которого требуется рассчитать экспоненциальную функцию.
+
+    Возвращаемое значение:
+        Экспоненциальное значение x.
+    """
+    return external_call["exp", Float64, Float64](x)
+
+
 fn ceil(x: Float64) -> Float64:
     """C library <math.h> function `ceil`
 

@@ -27,6 +27,7 @@ from libc.math import (
     coshf,
     tanh,
     tanhf,
+    exp,
     ceil,
     ceilf,
     floor,
@@ -262,6 +263,10 @@ fn test_tanhf() raises:
     assert_true(tanhf(-1) < 0)
     assert_true(isclose(sinhf(12) / coshf(12), tanhf(12)))
     assert_true(isclose(sinhf(-12) / coshf(-12), tanhf(-12)))
+
+
+fn test_exp() raises:
+    assert_equal(exp(0), 1)
 
 
 fn test_ceil() raises:
