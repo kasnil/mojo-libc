@@ -567,6 +567,27 @@ fn exp(x: Float64) -> Float64:
     return external_call["exp", Float64, Float64](x)
 
 
+fn expf(x: Float32) -> Float32:
+    """C library <math.h> function `expf`
+
+    Ссылка:
+        https://man7.org/linux/man-pages/man3/exp.3.html
+
+    Прототип:
+        float expf(float x)
+
+    Описание:
+        Вычисляет экспоненциальную функцию от числа n: (eⁿ). Ошибка диапазона возникает при слишком больших значениях числа n.
+
+    Аргументы:
+        x: Число, для которого требуется рассчитать экспоненциальную функцию.
+
+    Возвращаемое значение:
+        Экспоненциальное значение x.
+    """
+    return external_call["expf", Float32, Float32](x)
+
+
 fn ceil(x: Float64) -> Float64:
     """C library <math.h> function `ceil`
 

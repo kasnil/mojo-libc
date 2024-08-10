@@ -28,6 +28,7 @@ from libc.math import (
     tanh,
     tanhf,
     exp,
+    expf,
     ceil,
     ceilf,
     floor,
@@ -229,44 +230,56 @@ fn test_sinh() raises:
     assert_equal(sinh(0), 0)
     assert_true(sinh(1) > 0)
     assert_true(sinh(-1) < 0)
+    assert_true(isclose(sinh(12), (exp(12) - exp(-12)) / 2))
+    assert_true(isclose(sinh(-12), (exp(-12) - exp(12)) / 2))
 
 
 fn test_sinhf() raises:
     assert_equal(sinhf(0), 0)
     assert_true(sinhf(1) > 0)
     assert_true(sinhf(-1) < 0)
+    assert_true(isclose(sinhf(12), (expf(12) - expf(-12)) / 2))
+    assert_true(isclose(sinhf(-12), (expf(-12) - expf(12)) / 2))
 
 
 fn test_cosh() raises:
     assert_equal(cosh(0), 1)
     assert_true(cosh(1) > 1)
     assert_true(cosh(-1) > 1)
+    assert_true(isclose(cosh(12), (exp(12) + exp(-12)) / 2))
+    assert_true(isclose(cosh(-12), (exp(-12) + exp(12)) / 2))
 
 
 fn test_coshf() raises:
     assert_equal(coshf(0), 1)
     assert_true(coshf(1) > 1)
     assert_true(coshf(-1) > 1)
+    assert_true(isclose(coshf(12), (expf(12) + expf(-12)) / 2))
+    assert_true(isclose(coshf(-12), (expf(-12) + expf(12)) / 2))
 
 
 fn test_tanh() raises:
     assert_equal(tanh(0), 0)
     assert_true(tanh(1) > 0)
     assert_true(tanh(-1) < 0)
-    assert_true(isclose(sinh(12) / cosh(12), tanh(12)))
-    assert_true(isclose(sinh(-12) / cosh(-12), tanh(-12)))
+    assert_true(isclose(tanh(12), sinh(12) / cosh(12)))
+    assert_true(isclose(tanh(-12), sinh(-12) / cosh(-12)))
 
 
 fn test_tanhf() raises:
     assert_equal(tanhf(0), 0)
     assert_true(tanhf(1) > 0)
     assert_true(tanhf(-1) < 0)
-    assert_true(isclose(sinhf(12) / coshf(12), tanhf(12)))
-    assert_true(isclose(sinhf(-12) / coshf(-12), tanhf(-12)))
+    assert_true(isclose(tanhf(12), sinhf(12) / coshf(12)))
+    assert_true(isclose(tanhf(-12), sinhf(-12) / coshf(-12)))
 
 
 fn test_exp() raises:
     assert_equal(exp(0), 1)
+
+
+fn test_expf() raises:
+    assert_equal(expf(0), 1)
 
 
 fn test_ceil() raises:
