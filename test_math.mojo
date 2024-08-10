@@ -24,6 +24,7 @@ from libc.math import (
     sinh,
     sinhf,
     cosh,
+    coshf,
     ceil,
     ceilf,
     floor,
@@ -237,6 +238,12 @@ fn test_cosh() raises:
     assert_equal(cosh(0), 1)
     assert_true(cosh(1) > 1)
     assert_true(cosh(-1) > 1)
+
+
+fn test_coshf() raises:
+    assert_equal(coshf(0), 1)
+    assert_true(coshf(1) > 1)
+    assert_true(coshf(-1) > 1)
 
 
 fn test_ceil() raises:

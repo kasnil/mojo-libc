@@ -483,6 +483,27 @@ fn cosh(x: Float64) -> Float64:
     return external_call["cosh", Float64, Float64](x)
 
 
+fn coshf(x: Float32) -> Float32:
+    """C library <math.h> function `coshf`
+
+    Ссылка:
+        https://man7.org/linux/man-pages/man3/cosh.3.html
+
+    Прототип:
+        float coshf(float x)
+
+    Описание:
+        Вычисляет гиперболический косинус x (заданного в радианах). Ошибка диапазона возникает при слишком большом значении x.
+
+    Аргументы:
+        x: Угол в радианах для которого требуется вычислить гиперболический косинус.
+
+    Возвращаемое значение:
+        Гиперболический косинус x.
+    """
+    return external_call["coshf", Float32, Float32](x)
+
+
 fn ceil(x: Float64) -> Float64:
     """C library <math.h> function `ceil`
 
