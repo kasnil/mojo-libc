@@ -30,6 +30,7 @@ from libc.math import (
     exp,
     expf,
     log2,
+    log2f,
     log,
     logf,
     log10,
@@ -301,6 +302,19 @@ fn test_log2() raises:
     assert_true(isclose(log2(4 * 3), log2(4) + log2(3)))
     assert_true(isclose(log2(4 / 3), log2(4) - log2(3)))
     assert_true(isclose(log2(4**3), 3 * log2(4)))
+
+
+fn test_log2f() raises:
+    assert_true(isnan(log2f(-1)))
+    assert_true(isinf(log2f(0)))
+    assert_equal(log2f(1), 0)
+    assert_equal(log2f(2), 1)
+    assert_equal(log2f(16), 4)
+    assert_equal(log2f(0.5), -1)
+    assert_equal(log2f(1 / 256), -8)
+    assert_true(isclose(log2f(4 * 3), log2f(4) + log2f(3)))
+    assert_true(isclose(log2f(4 / 3), log2f(4) - log2f(3)))
+    assert_true(isclose(log2f(4**3), 3 * log2f(4)))
 
 
 fn test_log() raises:
