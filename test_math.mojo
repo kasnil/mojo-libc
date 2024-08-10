@@ -29,6 +29,7 @@ from libc.math import (
     tanhf,
     exp,
     expf,
+    log,
     ceil,
     ceilf,
     floor,
@@ -280,6 +281,14 @@ fn test_exp() raises:
 
 fn test_expf() raises:
     assert_equal(expf(0), 1)
+
+
+fn test_log() raises:
+    assert_true(isnan(log(-1)))
+    assert_true(isinf(log(0)))
+    assert_true(isclose(log(4 * 3), log(4) + log(3)))
+    assert_true(isclose(log(4 / 3), log(4) - log(3)))
+    assert_true(isclose(log(4**3), 3 * log(4)))
 
 
 fn test_ceil() raises:

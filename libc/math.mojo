@@ -588,6 +588,27 @@ fn expf(x: Float32) -> Float32:
     return external_call["expf", Float32, Float32](x)
 
 
+fn log(x: Float64) -> Float64:
+    """C library <math.h> function `log`
+
+    Ссылка:
+        https://man7.org/linux/man-pages/man3/log.3.html
+
+    Прототип:
+        double log(double x)
+
+    Описание:
+        Вычисляет натуральный логафрим (по основанию e) числа x: logₑ x. Ошибка определения функции возникает при отрицательных x. Ошибка выхода за границы диапазона возникает при x равном нулю.
+
+    Аргументы:
+        x: Число, от которого требуется вычислить натуральный логарифм.
+
+    Возвращаемое значение:
+        Натуральный логарифм x. Для конечных значений x меньше нуля, данные функции возвращают nan. Ошибка выхода за границы диапазона возникает при x равном нулю.
+    """
+    return external_call["log", Float64, Float64](x)
+
+
 fn ceil(x: Float64) -> Float64:
     """C library <math.h> function `ceil`
 
