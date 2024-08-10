@@ -23,6 +23,7 @@ from libc.math import (
     atan2f,
     sinh,
     sinhf,
+    cosh,
     ceil,
     ceilf,
     floor,
@@ -230,6 +231,12 @@ fn test_sinhf() raises:
     assert_equal(sinhf(0), 0)
     assert_true(sinhf(1) > 0)
     assert_true(sinhf(-1) < 0)
+
+
+fn test_cosh() raises:
+    assert_equal(cosh(0), 1)
+    assert_true(cosh(1) > 1)
+    assert_true(cosh(-1) > 1)
 
 
 fn test_ceil() raises:
