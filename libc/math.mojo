@@ -441,6 +441,27 @@ fn sinh(x: Float64) -> Float64:
     return external_call["sinh", Float64, Float64](x)
 
 
+fn sinhf(x: Float32) -> Float32:
+    """C library <math.h> function `sinhf`
+
+    Ссылка:
+        https://man7.org/linux/man-pages/man3/sinh.3.html
+
+    Прототип:
+        float sinhf(float x)
+
+    Описание:
+        Вычисляет гиперболический синус x (заданного в радианах). Ошибка диапазона возникает при слишком большом значении x.
+
+    Аргументы:
+        x: Угол в радианах, для которого требуется вычислить гиперболический синус.
+
+    Возвращаемое значение:
+        Значение гиперболического синуса.
+    """
+    return external_call["sinhf", Float32, Float32](x)
+
+
 fn ceil(x: Float64) -> Float64:
     """C library <math.h> function `ceil`
 
