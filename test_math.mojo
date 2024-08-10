@@ -29,6 +29,7 @@ from libc.math import (
     tanhf,
     exp,
     expf,
+    expm1,
     log2,
     log2f,
     log,
@@ -291,6 +292,13 @@ fn test_exp() raises:
 fn test_expf() raises:
     assert_equal(expf(0), 1)
     assert_true(isclose(expf(1), e))
+
+
+fn test_expm1() raises:
+    assert_equal(expm1(0), 0)
+    assert_true(isclose(expm1(12), exp(12) - 1))
+    assert_true(expm1(1) > 0)
+    assert_true(expm1(-1) < 0)
 
 
 fn test_log2() raises:
