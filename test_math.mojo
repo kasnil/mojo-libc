@@ -30,6 +30,7 @@ from libc.math import (
     exp,
     expf,
     expm1,
+    expm1f,
     log2,
     log2f,
     log,
@@ -299,6 +300,13 @@ fn test_expm1() raises:
     assert_true(isclose(expm1(12), exp(12) - 1))
     assert_true(expm1(1) > 0)
     assert_true(expm1(-1) < 0)
+
+
+fn test_expm1f() raises:
+    assert_equal(expm1f(0), 0)
+    assert_true(isclose(expm1f(12), expf(12) - 1))
+    assert_true(expm1f(1) > 0)
+    assert_true(expm1f(-1) < 0)
 
 
 fn test_log2() raises:

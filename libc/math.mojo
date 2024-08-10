@@ -609,6 +609,27 @@ fn expm1(x: Float64) -> Float64:
     return external_call["expm1", Float64, Float64](x)
 
 
+fn expm1f(x: Float32) -> Float32:
+    """C library <math.h> function `expm1f`
+
+    Ссылка:
+        https://man7.org/linux/man-pages/man3/expm1.3.html
+
+    Прототип:
+        float expm1f(float x)
+
+    Описание:
+        Вычисляет экспоненциальную функцию от числа x, и отнимают от результата 1: (eˣ - 1). Ошибка диапазона возникает при слишком больших значениях числа x. Значение expm1(x) может быть более точным, чем exp(x) - 1.0 для малых значений x.
+
+    Аргументы:
+        x: Число, для которого требуется рассчитать экспоненциальную функцию и вычесть единицу.
+
+    Возвращаемое значение:
+        Экспоненциальное значение x с вычтенной единицей.
+    """
+    return external_call["expm1f", Float32, Float32](x)
+
+
 fn log2(x: Float64) -> Float64:
     """C library <math.h> function `log2`
 
