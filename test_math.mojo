@@ -32,6 +32,7 @@ from libc.math import (
     log,
     logf,
     log10,
+    log10f,
     ceil,
     ceilf,
     floor,
@@ -322,6 +323,20 @@ fn test_log10() raises:
     assert_true(isclose(log10(4 * 3), log10(4) + log10(3)))
     assert_true(isclose(log10(4 / 3), log10(4) - log10(3)))
     assert_true(isclose(log10(4**3), 3 * log10(4)))
+
+
+fn test_log10f() raises:
+    assert_true(isnan(log10f(-1)))
+    assert_true(isinf(log10f(0)))
+    assert_equal(log10f(1), 0)
+    assert_equal(log10f(10), 1)
+    assert_equal(log10f(100), 2)
+    assert_equal(log10f(1_000_000), 6)
+    assert_equal(log10f(0.1), -1)
+    assert_equal(log10f(0.001), -3)
+    assert_true(isclose(log10f(4 * 3), log10f(4) + log10f(3)))
+    assert_true(isclose(log10f(4 / 3), log10f(4) - log10f(3)))
+    assert_true(isclose(log10f(4**3), 3 * log10f(4)))
 
 
 fn test_ceil() raises:
