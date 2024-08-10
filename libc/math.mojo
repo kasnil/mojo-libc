@@ -714,6 +714,27 @@ fn log10f(x: Float32) -> Float32:
     return external_call["log10f", Float32, Float32](x)
 
 
+fn log1p(x: Float64) -> Float64:
+    """C library <math.h> function `log1p`
+
+    Ссылка:
+        https://man7.org/linux/man-pages/man3/log1p.3.html
+
+    Прототип:
+        double log1p(double x)
+
+    Описание:
+        Вычисляет значение log(1 + x), где x > -1.0.
+
+    Аргументы:
+        x: Число, к которому требуется прибавить единицу и затем вычислить натуральный логарифм.
+
+    Возвращаемое значение:
+        log(1 + x). Для конечных значений x, меньших чем -1, данные функция вовращает nan.
+    """
+    return external_call["log1p", Float64, Float64](x)
+
+
 fn ceil(x: Float64) -> Float64:
     """C library <math.h> function `ceil`
 
