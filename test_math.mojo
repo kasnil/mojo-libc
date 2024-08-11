@@ -46,6 +46,7 @@ from libc.math import (
     round,
     roundf,
     copysign,
+    copysignf,
 )
 
 from math.math import isclose
@@ -474,3 +475,7 @@ fn test_roundf() raises:
 
 fn test_copysign() raises:
     assert_equal(copysign(292, -25), -292)
+
+
+fn test_copysignf() raises:
+    assert_equal(copysignf(292, -25), -292)
