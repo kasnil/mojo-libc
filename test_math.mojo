@@ -47,12 +47,20 @@ from libc.math import (
     roundf,
     copysign,
     copysignf,
+    sqrt,
     cbrt,
     cbrtf,
 )
 
 from math.math import isclose
-from utils.numerics import isnan, isinf, isfinite, max_finite, min_finite
+from utils.numerics import (
+    isnan,
+    isinf,
+    isfinite,
+    max_finite,
+    min_finite,
+    neg_inf,
+)
 
 alias pi: Float64 = 3.14159265358979323
 alias e: Float64 = 2.71828182845904523
@@ -483,13 +491,24 @@ fn test_copysignf() raises:
     assert_equal(copysignf(292, -25), -292)
 
 
+fn test_sqrt() raises:
+    assert_equal(sqrt(4), 2)
+    assert_true(isclose(sqrt(9), 3))
+    assert_true(isclose(sqrt(16), 4))
+    assert_true(isclose(sqrt(25), 5))
+    assert_true(isnan(sqrt(-12)))
+    assert_true(isnan(sqrt(neg_inf[DType.float64]())))
+
+
 fn test_cbrt() raises:
     assert_equal(cbrt(8), 2)
     assert_true(isclose(cbrt(27), 3))
+    assert_true(isclose(cbrt(64), 4))
     assert_true(isclose(cbrt(125), 5))
 
 
 fn test_cbrtf() raises:
     assert_equal(cbrtf(8), 2)
     assert_true(isclose(cbrtf(27), 3))
+    assert_true(isclose(cbrtf(64), 4))
     assert_true(isclose(cbrtf(125), 5))
