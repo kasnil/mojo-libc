@@ -53,6 +53,7 @@ from libc.math import (
     cbrtf,
     hypot,
     hypotf,
+    rint,
 )
 
 from math.math import isclose
@@ -540,3 +541,7 @@ fn test_hypotf() raises:
         isinf(hypotf(max_finite[DType.float32](), max_finite[DType.float32]()))
     )
     assert_true(isclose(hypotf(3, 4), sqrtf(3 * 3 + 4 * 4)))
+
+
+fn test_rint() raises:
+    assert_equal(rint(0.7), 1.0)
