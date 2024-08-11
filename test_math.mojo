@@ -47,6 +47,7 @@ from libc.math import (
     roundf,
     copysign,
     copysignf,
+    cbrt,
 )
 
 from math.math import isclose
@@ -479,3 +480,9 @@ fn test_copysign() raises:
 
 fn test_copysignf() raises:
     assert_equal(copysignf(292, -25), -292)
+
+
+fn test_cbrt() raises:
+    assert_equal(cbrt(8), 2)
+    assert_true(isclose(cbrt(27), 3))
+    assert_true(isclose(cbrt(125), 5))
