@@ -54,6 +54,7 @@ from libc.math import (
     hypot,
     hypotf,
     rint,
+    rintf,
 )
 
 from math.math import isclose
@@ -545,3 +546,9 @@ fn test_hypotf() raises:
 
 fn test_rint() raises:
     assert_equal(rint(0.7), 1.0)
+    assert_equal(rint(1.3), 1.0)
+
+
+fn test_rintf() raises:
+    assert_equal(rintf(0.7), 1.0)
+    assert_equal(rintf(1.3), 1.0)
