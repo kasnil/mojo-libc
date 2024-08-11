@@ -922,3 +922,25 @@ fn roundf(x: Float32) -> Float32:
         Значение с плавающей запятой, которое представляет целое число, ближайшее к x. Промежуточные значения округляются в сторону от нуля, независимо от настройки режима округления чисел с плавающей запятой.
     """
     return external_call["roundf", Float32, Float32](x)
+
+
+fn copysign(x: Float64, y: Float64) -> Float64:
+    """C library <math.h> function `copysign`
+
+    Ссылка:
+        https://man7.org/linux/man-pages/man3/copysign.3.html
+
+    Прототип:
+        double copysign(double x, double y)
+
+    Описание:
+        Возвращаеют значение числа x и знаковый бит числа y.
+
+    Аргументы:
+        x: Число для заимствования значения.
+        y: Число для заимствования знака.
+
+    Возвращаемое значение:
+        Значение x и знаковый бит y.
+    """
+    return external_call["copysign", Float64, Float64, Float64](x, y)
