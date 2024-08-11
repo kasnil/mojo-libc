@@ -56,6 +56,7 @@ from libc.math import (
     rint,
     rintf,
     nearbyint,
+    nearbyintf,
 )
 
 from math.math import isclose
@@ -558,3 +559,8 @@ fn test_rintf() raises:
 fn test_nearbyint() raises:
     assert_equal(nearbyint(0.7), 1.0)
     assert_equal(nearbyint(1.3), 1.0)
+
+
+fn test_nearbyintf() raises:
+    assert_equal(nearbyintf(0.7), 1.0)
+    assert_equal(nearbyintf(1.3), 1.0)
