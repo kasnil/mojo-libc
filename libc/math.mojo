@@ -989,6 +989,27 @@ fn sqrt(x: Float64) -> Float64:
     return external_call["sqrt", Float64, Float64](x)
 
 
+fn sqrtf(x: Float32) -> Float32:
+    """C library <math.h> function `sqrtf`
+
+    Ссылка:
+        https://man7.org/linux/man-pages/man3/sqrt.3.html
+
+    Прототип:
+        float sqrtf(float x)
+
+    Описание:
+        Возвращяет неотрицательный квадратный корень числа x. Ошибка диапазона возникает при отрицательном аргументе.
+
+    Аргументы:
+        x: Число, из которого требуется извлечь квадратный корень.
+
+    Возвращаемое значение:
+        Неотрицательный квадратный корень заданного числа. Для конечных значений x < -0, данные функции возвращают nan. Возвращаемым значением при x равном neg_inf является nan.
+    """
+    return external_call["sqrtf", Float32, Float32](x)
+
+
 fn cbrt(x: Float64) -> Float64:
     """C library <math.h> function `cbrt`
 

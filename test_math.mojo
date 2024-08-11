@@ -48,6 +48,7 @@ from libc.math import (
     copysign,
     copysignf,
     sqrt,
+    sqrtf,
     cbrt,
     cbrtf,
 )
@@ -498,6 +499,15 @@ fn test_sqrt() raises:
     assert_true(isclose(sqrt(25), 5))
     assert_true(isnan(sqrt(-12)))
     assert_true(isnan(sqrt(neg_inf[DType.float64]())))
+
+
+fn test_sqrtf() raises:
+    assert_equal(sqrtf(4), 2)
+    assert_true(isclose(sqrtf(9), 3))
+    assert_true(isclose(sqrtf(16), 4))
+    assert_true(isclose(sqrtf(25), 5))
+    assert_true(isnan(sqrtf(-12)))
+    assert_true(isnan(sqrtf(neg_inf[DType.float32]())))
 
 
 fn test_cbrt() raises:
