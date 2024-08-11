@@ -48,6 +48,7 @@ from libc.math import (
     copysign,
     copysignf,
     cbrt,
+    cbrtf,
 )
 
 from math.math import isclose
@@ -486,3 +487,9 @@ fn test_cbrt() raises:
     assert_equal(cbrt(8), 2)
     assert_true(isclose(cbrt(27), 3))
     assert_true(isclose(cbrt(125), 5))
+
+
+fn test_cbrtf() raises:
+    assert_equal(cbrtf(8), 2)
+    assert_true(isclose(cbrtf(27), 3))
+    assert_true(isclose(cbrtf(125), 5))

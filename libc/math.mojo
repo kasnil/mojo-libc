@@ -987,3 +987,24 @@ fn cbrt(x: Float64) -> Float64:
         Кубический корень x.
     """
     return external_call["cbrt", Float64, Float64](x)
+
+
+fn cbrtf(x: Float32) -> Float32:
+    """C library <math.h> function `cbrtf`
+
+    Ссылка:
+        https://man7.org/linux/man-pages/man3/cbrt.3.html
+
+    Прототип:
+        float cbrtf(float x)
+
+    Описание:
+        Извлекает кубический корень числа x.
+
+    Аргументы:
+        x: Число, для которого требуется извлечь кубический корень.
+
+    Возвращаемое значение:
+        Кубический корень x.
+    """
+    return external_call["cbrtf", Float32, Float32](x)
