@@ -1050,3 +1050,25 @@ fn cbrtf(x: Float32) -> Float32:
         Кубический корень x.
     """
     return external_call["cbrtf", Float32, Float32](x)
+
+
+fn hypot(x: Float64, y: Float64) -> Float64:
+    """C library <math.h> function `hypot`
+
+    Ссылка:
+        https://man7.org/linux/man-pages/man3/hypot.3.html
+
+    Прототип:
+        double hypot(double x, double y)
+
+    Описание:
+        Возвращяет  длину гипотенузы для прямоугольного треугольника, стороны которого равны x и y и которые расположены против прямого угла. Вычисления эквивалентны следующим: sqrt(x * x + y * y).
+
+    Аргументы:
+        x: Длина стороны, противолежащих прямому углу треугольника.
+        y: Длина стороны, противолежащих прямому углу треугольника.
+
+    Возвращаемое значение:
+        В случае успешного выполнения hypot возвращает длину гипотенузы. При переполнении hypot возвращает inf.
+    """
+    return external_call["hypot", Float64, Float64, Float64](x, y)

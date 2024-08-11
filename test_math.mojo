@@ -51,6 +51,7 @@ from libc.math import (
     sqrtf,
     cbrt,
     cbrtf,
+    hypot,
 )
 
 from math.math import isclose
@@ -522,3 +523,10 @@ fn test_cbrtf() raises:
     assert_true(isclose(cbrtf(27), 3))
     assert_true(isclose(cbrtf(64), 4))
     assert_true(isclose(cbrtf(125), 5))
+
+
+fn test_hypot() raises:
+    assert_equal(hypot(3, 4), 5)
+    assert_true(
+        isinf(hypot(max_finite[DType.float64](), max_finite[DType.float64]()))
+    )
