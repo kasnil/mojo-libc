@@ -57,7 +57,9 @@ from libc.math import (
     rintf,
     nearbyint,
     nearbyintf,
+    fabs,
 )
+import libc.fenv
 
 from math.math import isclose
 from utils.numerics import (
@@ -549,18 +551,72 @@ fn test_hypotf() raises:
 fn test_rint() raises:
     assert_equal(rint(0.7), 1.0)
     assert_equal(rint(1.3), 1.0)
+    if fenv.fegetround() == fenv.FE_TOWARDZERO:
+        assert_equal(rint(0.5), 0)
+        assert_equal(rint(-0.5), 0)
+    elif fenv.fegetround() == fenv.FE_TONEAREST:
+        assert_equal(rint(1.5), 2)
+        assert_equal(rint(-1.5), -2)
+    elif fenv.fegetround() == fenv.FE_UPWARD:
+        assert_equal(rint(0.5), 1)
+        assert_equal(rint(-1.5), -1)
+    elif fenv.fegetround() == fenv.FE_DOWNWARD:
+        assert_equal(rint(1.5), 1)
+        assert_equal(rint(-0.5), -1)
 
 
 fn test_rintf() raises:
     assert_equal(rintf(0.7), 1.0)
     assert_equal(rintf(1.3), 1.0)
+    if fenv.fegetround() == fenv.FE_TOWARDZERO:
+        assert_equal(rintf(0.5), 0)
+        assert_equal(rintf(-0.5), 0)
+    elif fenv.fegetround() == fenv.FE_TONEAREST:
+        assert_equal(rintf(1.5), 2)
+        assert_equal(rintf(-1.5), -2)
+    elif fenv.fegetround() == fenv.FE_UPWARD:
+        assert_equal(rintf(0.5), 1)
+        assert_equal(rintf(-1.5), -1)
+    elif fenv.fegetround() == fenv.FE_DOWNWARD:
+        assert_equal(rintf(1.5), 1)
+        assert_equal(rintf(-0.5), -1)
 
 
 fn test_nearbyint() raises:
     assert_equal(nearbyint(0.7), 1.0)
     assert_equal(nearbyint(1.3), 1.0)
+    if fenv.fegetround() == fenv.FE_TOWARDZERO:
+        assert_equal(nearbyint(0.5), 0)
+        assert_equal(nearbyint(-0.5), 0)
+    elif fenv.fegetround() == fenv.FE_TONEAREST:
+        assert_equal(nearbyint(1.5), 2)
+        assert_equal(nearbyint(-1.5), -2)
+    elif fenv.fegetround() == fenv.FE_UPWARD:
+        assert_equal(nearbyint(0.5), 1)
+        assert_equal(nearbyint(-1.5), -1)
+    elif fenv.fegetround() == fenv.FE_DOWNWARD:
+        assert_equal(nearbyint(1.5), 1)
+        assert_equal(nearbyint(-0.5), -1)
 
 
 fn test_nearbyintf() raises:
     assert_equal(nearbyintf(0.7), 1.0)
     assert_equal(nearbyintf(1.3), 1.0)
+    if fenv.fegetround() == fenv.FE_TOWARDZERO:
+        assert_equal(nearbyintf(0.5), 0)
+        assert_equal(nearbyintf(-0.5), 0)
+    elif fenv.fegetround() == fenv.FE_TONEAREST:
+        assert_equal(nearbyintf(1.5), 2)
+        assert_equal(nearbyintf(-1.5), -2)
+    elif fenv.fegetround() == fenv.FE_UPWARD:
+        assert_equal(nearbyintf(0.5), 1)
+        assert_equal(nearbyintf(-1.5), -1)
+    elif fenv.fegetround() == fenv.FE_DOWNWARD:
+        assert_equal(nearbyintf(1.5), 1)
+        assert_equal(nearbyintf(-0.5), -1)
+
+
+fn test_fabs() raises:
+    assert_equal(fabs(0), 0)
+    assert_equal(fabs(0.5), 0.5)
+    assert_equal(fabs(-0.5), 0.5)

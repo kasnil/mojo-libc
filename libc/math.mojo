@@ -1178,3 +1178,24 @@ fn nearbyintf(x: Float32) -> Float32:
         Целое число (представленное в виде числа с одинарной точностью Float32), ближайшее к x в направлении текущего режима округления (IEEE754).
     """
     return external_call["nearbyintf", Float32, Float32](x)
+
+
+fn fabs(x: Float64) -> Float64:
+    """C library <math.h> function `fabs`
+
+    Ссылка:
+        https://man7.org/linux/man-pages/man3/fabs.3.html
+
+    Прототип:
+        double fabs(double x)
+
+    Описание:
+        Вычисляет модуль x.
+
+    Аргументы:
+        x: Число, модуль которого требуется получить.
+
+    Возвращаемое значение:
+        Модуль величины x.
+    """
+    return external_call["fabs", Float64, Float64](x)
