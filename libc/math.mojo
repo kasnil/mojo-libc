@@ -1199,3 +1199,24 @@ fn fabs(x: Float64) -> Float64:
         Модуль величины x.
     """
     return external_call["fabs", Float64, Float64](x)
+
+
+fn fabsf(x: Float32) -> Float32:
+    """C library <math.h> function `fabsf`
+
+    Ссылка:
+        https://man7.org/linux/man-pages/man3/fabs.3.html
+
+    Прототип:
+        float fabsf(float x)
+
+    Описание:
+        Вычисляет модуль x.
+
+    Аргументы:
+        x: Число, модуль которого требуется получить.
+
+    Возвращаемое значение:
+        Модуль величины x.
+    """
+    return external_call["fabsf", Float32, Float32](x)

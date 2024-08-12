@@ -58,6 +58,7 @@ from libc.math import (
     nearbyint,
     nearbyintf,
     fabs,
+    fabsf,
 )
 import libc.fenv
 
@@ -620,3 +621,9 @@ fn test_fabs() raises:
     assert_equal(fabs(0), 0)
     assert_equal(fabs(0.5), 0.5)
     assert_equal(fabs(-0.5), 0.5)
+
+
+fn test_fabsf() raises:
+    assert_equal(fabsf(0), 0)
+    assert_equal(fabsf(0.5), 0.5)
+    assert_equal(fabsf(-0.5), 0.5)
