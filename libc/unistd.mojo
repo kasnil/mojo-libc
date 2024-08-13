@@ -17,3 +17,21 @@ fn getpid() -> c_pid:
         Идентификатор вызывающего процесса.
     """
     return external_call["getpid", c_pid]()
+
+
+fn getppid() -> c_pid:
+    """C POSIX library <unistd.h> function `getppid`
+
+    Ссылка:
+        https://man7.org/linux/man-pages/man3/getppid.3p.html
+
+    Прототип:
+        pid_t getppid(void)
+
+    Описание:
+        Получает идентификатор родителя вызывающего процесса.
+
+    Возвращаемое значение:
+        Идентификатор родителя вызывающего процесса.
+    """
+    return external_call["getppid", c_pid]()
