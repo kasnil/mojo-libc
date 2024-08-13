@@ -1,6 +1,6 @@
-from testing import assert_true
+from testing import assert_true, assert_equal
 
-from libc.unistd import getpid, getppid, getpgrp
+from libc.unistd import getpid, getppid, getpgrp, getpgid
 
 
 fn test_getpid() raises:
@@ -13,3 +13,7 @@ fn test_getppid() raises:
 
 fn test_getpgrp() raises:
     assert_true(getpgrp() > 0)
+
+
+fn test_getpgid() raises:
+    assert_equal(getpgid(0), getpgrp())

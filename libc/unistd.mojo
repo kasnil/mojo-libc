@@ -53,3 +53,24 @@ fn getpgrp() -> c_pid:
         Идентификатор группы вызывающего процесса.
     """
     return external_call["getpgrp", c_pid]()
+
+
+fn getpgid(pid: c_pid) -> c_pid:
+    """C POSIX library <unistd.h> function `getpgid`
+
+    Ссылка:
+        https://man7.org/linux/man-pages/man3/getpgid.3p.html
+
+    Прототип:
+        pid_t getpgid(pid_t pid)
+
+    Описание:
+        Возвращает идентификатор группы для процесса pid. Если pid равен 0, getpgid() возвращает идентификатор группы вызывающего процесса.
+
+    Аргументы:
+        pid: Идентификатор процесса, идентификатор группы процессов которого требуется получить.
+
+    Возвращаемое значение:
+        Идентификатор групп процесса в случае успешного завершения, или -1 в случае возникновения ошибки.
+    """
+    return external_call["getpgid", c_pid, c_pid](pid)
