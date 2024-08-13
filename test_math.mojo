@@ -60,6 +60,7 @@ from libc.math import (
     fabs,
     fabsf,
     fmod,
+    fmodf,
 )
 import libc.fenv
 
@@ -634,6 +635,20 @@ fn test_fabsf() raises:
 fn test_fmod() raises:
     assert_true(isclose(fmod(2.2, 2), 0.2))
     assert_true(isclose(fmod(-2.2, 2), -0.2))
+    assert_true(isclose(fmod(372, 360), 12))
+    assert_true(isclose(fmod(-372, 360), -12))
+    assert_true(isclose(fmod(-372, -360), -12))
     assert_true(isnan(fmod(-2.2, 0)))
     assert_true(isnan(fmod(inf[DType.float64](), 2)))
     assert_true(isnan(fmod(neg_inf[DType.float64](), 2)))
+
+
+fn test_fmodf() raises:
+    assert_true(isclose(fmodf(2.2, 2), 0.2))
+    assert_true(isclose(fmodf(-2.2, 2), -0.2))
+    assert_true(isclose(fmodf(372, 360), 12))
+    assert_true(isclose(fmodf(-372, 360), -12))
+    assert_true(isclose(fmodf(-372, -360), -12))
+    assert_true(isnan(fmodf(-2.2, 0)))
+    assert_true(isnan(fmodf(inf[DType.float32](), 2)))
+    assert_true(isnan(fmodf(neg_inf[DType.float32](), 2)))
