@@ -61,6 +61,7 @@ from libc.math import (
     fabsf,
     fmod,
     fmodf,
+    remainder,
 )
 import libc.fenv
 
@@ -639,6 +640,7 @@ fn test_fmod() raises:
     assert_true(isclose(fmod(-372, 360), -12))
     assert_true(isclose(fmod(-372, -360), -12))
     assert_true(isnan(fmod(-2.2, 0)))
+    assert_true(isnan(fmod(-2.2, 0)))
     assert_true(isnan(fmod(inf[DType.float64](), 2)))
     assert_true(isnan(fmod(neg_inf[DType.float64](), 2)))
 
@@ -650,5 +652,18 @@ fn test_fmodf() raises:
     assert_true(isclose(fmodf(-372, 360), -12))
     assert_true(isclose(fmodf(-372, -360), -12))
     assert_true(isnan(fmodf(-2.2, 0)))
+    assert_true(isnan(fmodf(-2.2, 0)))
     assert_true(isnan(fmodf(inf[DType.float32](), 2)))
     assert_true(isnan(fmodf(neg_inf[DType.float32](), 2)))
+
+
+fn test_remainder() raises:
+    assert_true(isclose(remainder(2.2, 2), 0.2))
+    assert_true(isclose(remainder(-2.2, 2), -0.2))
+    assert_true(isclose(remainder(372, 360), 12))
+    assert_true(isclose(remainder(-372, 360), -12))
+    assert_true(isclose(remainder(-372, -360), -12))
+    assert_true(isnan(remainder(2.2, 0)))
+    assert_true(isnan(remainder(-2.2, 0)))
+    assert_true(isnan(remainder(inf[DType.float64](), 2)))
+    assert_true(isnan(remainder(neg_inf[DType.float64](), 2)))
