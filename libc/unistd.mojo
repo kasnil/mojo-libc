@@ -35,3 +35,21 @@ fn getppid() -> c_pid:
         Идентификатор родителя вызывающего процесса.
     """
     return external_call["getppid", c_pid]()
+
+
+fn getpgrp() -> c_pid:
+    """C POSIX library <unistd.h> function `getpgrp`
+
+    Ссылка:
+        https://man7.org/linux/man-pages/man3/getpgrp.3p.html
+
+    Прототип:
+        pid_t getpgrp(void)
+
+    Описание:
+        Получает идентификатор группы процессов, к которой принадлежит вызывающий процесс.
+
+    Возвращаемое значение:
+        Идентификатор группы вызывающего процесса.
+    """
+    return external_call["getpgrp", c_pid]()
