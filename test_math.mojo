@@ -59,6 +59,7 @@ from libc.math import (
     nearbyintf,
     fabs,
     fabsf,
+    fmod,
 )
 import libc.fenv
 
@@ -69,6 +70,7 @@ from utils.numerics import (
     isfinite,
     max_finite,
     min_finite,
+    inf,
     neg_inf,
 )
 
@@ -627,3 +629,11 @@ fn test_fabsf() raises:
     assert_equal(fabsf(0), 0)
     assert_equal(fabsf(0.5), 0.5)
     assert_equal(fabsf(-0.5), 0.5)
+
+
+fn test_fmod() raises:
+    assert_true(isclose(fmod(2.2, 2), 0.2))
+    assert_true(isclose(fmod(-2.2, 2), -0.2))
+    assert_true(isnan(fmod(-2.2, 0)))
+    assert_true(isnan(fmod(inf[DType.float64](), 2)))
+    assert_true(isnan(fmod(neg_inf[DType.float64](), 2)))
