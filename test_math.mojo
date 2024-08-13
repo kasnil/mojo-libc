@@ -62,6 +62,7 @@ from libc.math import (
     fmod,
     fmodf,
     remainder,
+    remainderf,
 )
 import libc.fenv
 
@@ -663,7 +664,21 @@ fn test_remainder() raises:
     assert_true(isclose(remainder(372, 360), 12))
     assert_true(isclose(remainder(-372, 360), -12))
     assert_true(isclose(remainder(-372, -360), -12))
+    assert_true(isclose(remainder(29.0, 3.0), -1))
     assert_true(isnan(remainder(2.2, 0)))
     assert_true(isnan(remainder(-2.2, 0)))
     assert_true(isnan(remainder(inf[DType.float64](), 2)))
     assert_true(isnan(remainder(neg_inf[DType.float64](), 2)))
+
+
+fn test_remainderf() raises:
+    assert_true(isclose(remainderf(2.2, 2), 0.2))
+    assert_true(isclose(remainderf(-2.2, 2), -0.2))
+    assert_true(isclose(remainderf(372, 360), 12))
+    assert_true(isclose(remainderf(-372, 360), -12))
+    assert_true(isclose(remainderf(-372, -360), -12))
+    assert_true(isclose(remainderf(29.0, 3.0), -1))
+    assert_true(isnan(remainderf(2.2, 0)))
+    assert_true(isnan(remainderf(-2.2, 0)))
+    assert_true(isnan(remainderf(inf[DType.float32](), 2)))
+    assert_true(isnan(remainderf(neg_inf[DType.float32](), 2)))

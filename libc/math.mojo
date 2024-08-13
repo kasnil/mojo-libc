@@ -1286,3 +1286,25 @@ fn remainder(x: Float64, y: Float64) -> Float64:
         Остаток r = x - (n × y) в виде числа с плавающей точкой, где y не равен нулю. При x равном бесконечности или y равному нулю, или если x или y равны nan, будет возвращено nan.
     """
     return external_call["remainder", Float64, Float64, Float64](x, y)
+
+
+fn remainderf(x: Float32, y: Float32) -> Float32:
+    """C library <math.h> function `remainderf`
+
+    Ссылка:
+        https://man7.org/linux/man-pages/man3/remainder.3.html
+
+    Прототип:
+        float remainderf(float x, float y)
+
+    Описание:
+        Вычисляет остаток r = x - (n × y) в виде числа с плавающей точкой, где y не равен нулю. Значение n является целочисленным и ближайшим к действительному значению x / y. При |n - x/y| = ½, значение n выбирается чётным. Поведение функции remainder() не зависит от режима округления.
+
+    Аргументы:
+        x: Числитель.
+        y: Знаменатель.
+
+    Возвращаемое значение:
+        Остаток r = x - (n × y) в виде числа с плавающей точкой, где y не равен нулю. При x равном бесконечности или y равному нулю, или если x или y равны nan, будет возвращено nan.
+    """
+    return external_call["remainderf", Float32, Float32, Float32](x, y)
