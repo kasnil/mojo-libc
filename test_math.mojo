@@ -63,6 +63,7 @@ from libc.math import (
     fmodf,
     remainder,
     remainderf,
+    ilogb,
 )
 import libc.fenv
 
@@ -74,6 +75,7 @@ from utils.numerics import (
     max_finite,
     min_finite,
     inf,
+    nan,
     neg_inf,
 )
 
@@ -682,3 +684,11 @@ fn test_remainderf() raises:
     assert_true(isnan(remainderf(-2.2, 0)))
     assert_true(isnan(remainderf(inf[DType.float32](), 2)))
     assert_true(isnan(remainderf(neg_inf[DType.float32](), 2)))
+
+
+fn test_ilogb() raises:
+    assert_equal(ilogb(10.0), 3)
+    assert_true(ilogb(0) <= -2147483647)
+    assert_true(ilogb(nan[DType.float64]()) >= 2147483647)
+    assert_true(ilogb(neg_inf[DType.float64]()) >= 2147483647)
+    assert_true(ilogb(inf[DType.float64]()) >= 2147483647)
