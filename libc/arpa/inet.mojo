@@ -63,3 +63,24 @@ fn ntohl(netlong: c_uint32) -> c_uint32:
         Значение, приведенное к байтовому порядку хоста.
     """
     return external_call["ntohl", c_uint32, c_uint32](netlong)
+
+
+fn ntohs(netshort: c_uint16) -> c_uint16:
+    """C POSIX library <arpa/inet.h> function `ntohs`
+
+    Ссылка:
+        https://man7.org/linux/man-pages/man3/htons.3p.html
+
+    Прототип:
+        uint16_t ntohs(uint16_t netshort)
+
+    Описание:
+        Преобразует 16-битовое значение из сетевого байтового порядка в порядок байтов хоста.
+
+    Аргументы:
+        netshort: Значение, которое нужно преобразовать.
+
+    Возвращаемое значение:
+        Значение, приведенное к байтовому порядку хоста.
+    """
+    return external_call["ntohs", c_uint16, c_uint16](netshort)

@@ -1,6 +1,6 @@
 from testing import assert_equal
 
-from libc.arpa.inet import htonl, htons, ntohl
+from libc.arpa.inet import htonl, htons, ntohl, ntohs
 
 
 fn test_htonl() raises:
@@ -13,3 +13,7 @@ fn test_htons() raises:
 
 fn test_ntohl() raises:
     assert_equal(ntohl(0x78563412), 0x12345678)
+
+
+fn test_ntohs() raises:
+    assert_equal(ntohs(0x3412), 0x1234)
