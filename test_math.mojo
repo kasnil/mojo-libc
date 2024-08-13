@@ -64,6 +64,7 @@ from libc.math import (
     remainder,
     remainderf,
     ilogb,
+    ilogbf,
 )
 import libc.fenv
 
@@ -692,3 +693,11 @@ fn test_ilogb() raises:
     assert_true(ilogb(nan[DType.float64]()) >= 2147483647)
     assert_true(ilogb(neg_inf[DType.float64]()) >= 2147483647)
     assert_true(ilogb(inf[DType.float64]()) >= 2147483647)
+
+
+fn test_ilogbf() raises:
+    assert_equal(ilogbf(10.0), 3)
+    assert_true(ilogbf(0) <= -2147483647)
+    assert_true(ilogbf(nan[DType.float32]()) >= 2147483647)
+    assert_true(ilogbf(neg_inf[DType.float32]()) >= 2147483647)
+    assert_true(ilogbf(inf[DType.float32]()) >= 2147483647)
