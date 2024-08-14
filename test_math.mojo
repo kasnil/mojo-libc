@@ -77,6 +77,7 @@ from libc.math import (
     lgammaf_r,
     tgamma,
     tgammaf,
+    logb,
 )
 import libc.fenv
 
@@ -813,3 +814,10 @@ fn test_tgammaf() raises:
     assert_true(isnan(tgammaf(nan[DType.float64]())))
     assert_true(isnan(tgammaf(neg_inf[DType.float64]())))
     assert_true(isinf(tgammaf(inf[DType.float64]())))
+
+
+fn test_logb() raises:
+    assert_equal(logb(0.5), -1.0)
+    assert_true(isinf(logb(inf[DType.float64]())))
+    assert_true(isinf(logb(neg_inf[DType.float64]())))
+    assert_true(isinf(logb(0)))
