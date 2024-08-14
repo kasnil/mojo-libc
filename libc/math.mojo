@@ -1580,3 +1580,24 @@ fn lgammaf_r(x: Float32, signptr: DTypePointer[DType.int32]) -> Float32:
     return external_call[
         "lgammaf_r", Float32, Float32, DTypePointer[DType.int32]
     ](x, signptr)
+
+
+fn tgamma(x: Float64) -> Float64:
+    """C library <math.h> function `tgamma`
+
+    Ссылка:
+        https://man7.org/linux/man-pages/man3/tgamma.3.html
+
+    Прототип:
+        double tgamma(double x)
+
+    Описание:
+        Возвращает гамма-функцию указанного значения.
+
+    Аргументы:
+        x: Значение, для которого требуется найти гамму.
+
+    Возвращаемое значение:
+        В случае успешного выполнения возвращает гамму x.
+    """
+    return external_call["tgamma", Float64, Float64](x)

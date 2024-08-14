@@ -75,6 +75,7 @@ from libc.math import (
     lgammaf,
     lgamma_r,
     lgammaf_r,
+    tgamma,
 )
 import libc.fenv
 
@@ -795,3 +796,11 @@ fn test_lgammaf_r() raises:
     assert_true(isclose(lgammaf_r(-0.5, signptr), 1.2655121234846))
     assert_equal(signptr.load(), -1)
     signptr.free()
+
+
+fn test_tgamma() raises:
+    assert_true(isclose(tgamma(0.5), 1.7724538509))
+    assert_true(isclose(tgamma(-0.5), -3.544907701811))
+    assert_true(isnan(tgamma(nan[DType.float64]())))
+    assert_true(isnan(tgamma(neg_inf[DType.float64]())))
+    assert_true(isinf(tgamma(inf[DType.float64]())))
