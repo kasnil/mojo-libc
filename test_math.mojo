@@ -65,6 +65,7 @@ from libc.math import (
     remainderf,
     ilogb,
     ilogbf,
+    frexp,
 )
 import libc.fenv
 
@@ -701,3 +702,13 @@ fn test_ilogbf() raises:
     assert_true(ilogbf(nan[DType.float32]()) >= 2147483647)
     assert_true(ilogbf(neg_inf[DType.float32]()) >= 2147483647)
     assert_true(ilogbf(inf[DType.float32]()) >= 2147483647)
+
+
+fn test_frexp() raises:
+    var expptr = DTypePointer[DType.int32].alloc(1)
+    assert_equal(frexp(10.0, expptr), 0.625)
+    assert_equal(expptr.load(), 4)
+    assert_equal(10.0 * Float64(pow[Int32](2, expptr.load())), 10.0)
+    assert_equal(frexp(0, expptr), 0)
+    assert_equal(expptr.load(), 0)
+    expptr.free()
