@@ -71,6 +71,7 @@ from libc.math import (
     ldexpf,
     modf,
     modff,
+    lgamma,
 )
 import libc.fenv
 
@@ -763,3 +764,7 @@ fn test_modff() raises:
     assert_true(isclose(modff(0, intptr), 0))
     assert_equal(intptr.load(), 0)
     intptr.free()
+
+
+fn test_lgamma() raises:
+    assert_true(isclose(lgamma(0.5), 0.5723649429247))
