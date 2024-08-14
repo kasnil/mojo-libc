@@ -78,6 +78,7 @@ from libc.math import (
     tgamma,
     tgammaf,
     logb,
+    logbf,
 )
 import libc.fenv
 
@@ -821,3 +822,10 @@ fn test_logb() raises:
     assert_true(isinf(logb(inf[DType.float64]())))
     assert_true(isinf(logb(neg_inf[DType.float64]())))
     assert_true(isinf(logb(0)))
+
+
+fn test_logbf() raises:
+    assert_equal(logbf(0.5), -1.0)
+    assert_true(isinf(logbf(inf[DType.float64]())))
+    assert_true(isinf(logbf(neg_inf[DType.float64]())))
+    assert_true(isinf(logbf(0)))
