@@ -1556,3 +1556,27 @@ fn lgamma_r(x: Float64, signptr: DTypePointer[DType.int32]) -> Float64:
     return external_call[
         "lgamma_r", Float64, Float64, DTypePointer[DType.int32]
     ](x, signptr)
+
+
+fn lgammaf_r(x: Float32, signptr: DTypePointer[DType.int32]) -> Float32:
+    """C library <math.h> function `lgammaf_r`
+
+    Ссылка:
+        https://man7.org/linux/man-pages/man3/lgamma.3.html
+
+    Прототип:
+        float lgammaf_r(float x, int *signptr)
+
+    Описание:
+        Возвращает натуральный логарифм абсолютного значения гамма-функции для указанного значения.
+
+    Аргументы:
+        x: Произвольное число.
+        signptr: Указатель на область памяти, где функция может хранить знак гамма-функции для указанного значения.
+
+    Возвращаемое значение:
+        При успешном выполнении возвращает натуральный логарифм абсолютного значения гамма-функции x.
+    """
+    return external_call[
+        "lgammaf_r", Float32, Float32, DTypePointer[DType.int32]
+    ](x, signptr)

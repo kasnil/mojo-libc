@@ -74,6 +74,7 @@ from libc.math import (
     lgamma,
     lgammaf,
     lgamma_r,
+    lgammaf_r,
 )
 import libc.fenv
 
@@ -783,5 +784,14 @@ fn test_lgamma_r() raises:
     assert_true(isclose(lgamma_r(0.5, signptr), 0.5723649429247))
     assert_equal(signptr.load(), 1)
     assert_true(isclose(lgamma_r(-0.5, signptr), 1.2655121234846))
+    assert_equal(signptr.load(), -1)
+    signptr.free()
+
+
+fn test_lgammaf_r() raises:
+    var signptr = DTypePointer[DType.int32].alloc(1)
+    assert_true(isclose(lgammaf_r(0.5, signptr), 0.5723649429247))
+    assert_equal(signptr.load(), 1)
+    assert_true(isclose(lgammaf_r(-0.5, signptr), 1.2655121234846))
     assert_equal(signptr.load(), -1)
     signptr.free()
