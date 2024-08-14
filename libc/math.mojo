@@ -1374,3 +1374,27 @@ fn frexp(x: Float64, expptr: DTypePointer[DType.int32]) -> Float64:
     return external_call["frexp", Float64, Float64, DTypePointer[DType.int32]](
         x, expptr
     )
+
+
+fn frexpf(x: Float32, expptr: DTypePointer[DType.int32]) -> Float32:
+    """C library <math.h> function `frexpf`
+
+    Ссылка:
+        https://man7.org/linux/man-pages/man3/frexp.3.html
+
+    Прототип:
+        float frexpf(float x, int *expptr)
+
+    Описание:
+        Разбивает число с плавающей точкой на мантиссу и целую степень 2. Сохраняет степень 2 в int, на которое указывает exp.
+
+    Аргументы:
+        x: Значение, которое вы хотите разбить на нормализованную дробь.
+        expptr: Указатель на область памяти, где функция может хранить степень 2.
+
+    Возвращаемое значение:
+        Возвращает мантиссу со значением в диапазоне [0.5, 1] или 0, и x равеный мантиссе помноженный на 2 в степени expptr. Если x равно 0, функция возвращает значение 0 для мантиссы и степени.
+    """
+    return external_call["frexpf", Float32, Float32, DTypePointer[DType.int32]](
+        x, expptr
+    )

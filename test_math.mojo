@@ -66,6 +66,7 @@ from libc.math import (
     ilogb,
     ilogbf,
     frexp,
+    frexpf,
 )
 import libc.fenv
 
@@ -709,6 +710,22 @@ fn test_frexp() raises:
     assert_equal(frexp(10.0, expptr), 0.625)
     assert_equal(expptr.load(), 4)
     assert_equal(10.0 * Float64(pow[Int32](2, expptr.load())), 10.0)
+    assert_equal(frexp(2560.0, expptr), 0.625)
+    assert_equal(expptr.load(), 12)
+    assert_equal(2560.0 * Float64(pow[Int32](2, expptr.load())), 2560.0)
     assert_equal(frexp(0, expptr), 0)
+    assert_equal(expptr.load(), 0)
+    expptr.free()
+
+
+fn test_frexpf() raises:
+    var expptr = DTypePointer[DType.int32].alloc(1)
+    assert_equal(frexpf(10.0, expptr), 0.625)
+    assert_equal(expptr.load(), 4)
+    assert_equal(10.0 * Float64(pow[Int32](2, expptr.load())), 10.0)
+    assert_equal(frexpf(2560.0, expptr), 0.625)
+    assert_equal(expptr.load(), 12)
+    assert_equal(2560.0 * Float64(pow[Int32](2, expptr.load())), 2560.0)
+    assert_equal(frexpf(0, expptr), 0)
     assert_equal(expptr.load(), 0)
     expptr.free()
