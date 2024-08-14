@@ -70,6 +70,7 @@ from libc.math import (
     ldexp,
     ldexpf,
     modf,
+    modff,
 )
 import libc.fenv
 
@@ -751,5 +752,14 @@ fn test_modf() raises:
     assert_true(isclose(modf(-14.87654321, intptr), -0.87654321))
     assert_equal(intptr.load(), -14)
     assert_true(isclose(modf(0, intptr), 0))
+    assert_equal(intptr.load(), 0)
+    intptr.free()
+
+
+fn test_modff() raises:
+    var intptr = DTypePointer[DType.float32].alloc(1)
+    assert_true(isclose(modff(-14.87654321, intptr), -0.87654321))
+    assert_equal(intptr.load(), -14)
+    assert_true(isclose(modff(0, intptr), 0))
     assert_equal(intptr.load(), 0)
     intptr.free()

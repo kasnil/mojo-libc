@@ -1466,3 +1466,27 @@ fn modf(x: Float64, intptr: DTypePointer[DType.float64]) -> Float64:
     return external_call["modf", Float64, Float64, DTypePointer[DType.float64]](
         x, intptr
     )
+
+
+fn modff(x: Float32, intptr: DTypePointer[DType.float32]) -> Float32:
+    """C library <math.h> function `modff`
+
+    Ссылка:
+        https://man7.org/linux/man-pages/man3/modf.3.html
+
+    Прототип:
+        float modff(float x, float *intptr)
+
+    Описание:
+        Разбивает заданное значение на целую и дробную части, каждая из которых имеет тот же знак, что и аргумент. Данные функции хранят целую часть в виде Float32 в области памяти, на которую указывает intptr.
+
+    Аргументы:
+        x: Число, которое требуется разбить.
+        intptr: Указатель на область памяти, где функция может хранить целую часть числа.
+
+    Возвращаемое значение:
+        Дробную часть x со знаком.
+    """
+    return external_call[
+        "modff", Float32, Float32, DTypePointer[DType.float32]
+    ](x, intptr)
