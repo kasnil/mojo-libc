@@ -1601,3 +1601,24 @@ fn tgamma(x: Float64) -> Float64:
         В случае успешного выполнения возвращает гамму x.
     """
     return external_call["tgamma", Float64, Float64](x)
+
+
+fn tgammaf(x: Float32) -> Float32:
+    """C library <math.h> function `tgammaf`
+
+    Ссылка:
+        https://man7.org/linux/man-pages/man3/tgamma.3.html
+
+    Прототип:
+        float tgammaf(float x)
+
+    Описание:
+        Возвращает гамма-функцию указанного значения.
+
+    Аргументы:
+        x: Значение, для которого требуется найти гамму.
+
+    Возвращаемое значение:
+        В случае успешного выполнения возвращает гамму x.
+    """
+    return external_call["tgammaf", Float32, Float32](x)
