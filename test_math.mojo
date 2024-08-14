@@ -72,6 +72,7 @@ from libc.math import (
     modf,
     modff,
     lgamma,
+    lgammaf,
 )
 import libc.fenv
 
@@ -768,3 +769,7 @@ fn test_modff() raises:
 
 fn test_lgamma() raises:
     assert_true(isclose(lgamma(0.5), 0.5723649429247))
+
+
+fn test_lgammaf() raises:
+    assert_true(isclose(lgammaf(0.5), 0.5723649429247))
