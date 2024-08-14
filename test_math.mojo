@@ -69,6 +69,7 @@ from libc.math import (
     frexpf,
     ldexp,
     ldexpf,
+    modf,
 )
 import libc.fenv
 
@@ -743,3 +744,12 @@ fn test_ldexpf() raises:
     assert_equal(ldexpf(0.625, 4), 10.0)
     assert_equal(ldexpf(0.625, 12), 2560.0)
     assert_equal(ldexpf(4.0, 3), 32.0)
+
+
+fn test_modf() raises:
+    var intptr = DTypePointer[DType.float64].alloc(1)
+    assert_true(isclose(modf(-14.87654321, intptr), -0.87654321))
+    assert_equal(intptr.load(), -14)
+    assert_true(isclose(modf(0, intptr), 0))
+    assert_equal(intptr.load(), 0)
+    intptr.free()

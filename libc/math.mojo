@@ -1442,3 +1442,27 @@ fn ldexpf(x: Float32, exp: Int32) -> Float32:
         При успешном выполнении функция возвращает значение x * 2^exp.
     """
     return external_call["ldexpf", Float32, Float32, Int32](x, exp)
+
+
+fn modf(x: Float64, intptr: DTypePointer[DType.float64]) -> Float64:
+    """C library <math.h> function `modf`
+
+    Ссылка:
+        https://man7.org/linux/man-pages/man3/modf.3.html
+
+    Прототип:
+        double modf(double x, double *intptr)
+
+    Описание:
+        Разбивает заданное значение на целую и дробную части, каждая из которых имеет тот же знак, что и аргумент. Данные функции хранят целую часть в виде Float64 в области памяти, на которую указывает intptr.
+
+    Аргументы:
+        x: Число, которое требуется разбить.
+        intptr: Указатель на область памяти, где функция может хранить целую часть числа.
+
+    Возвращаемое значение:
+        Дробную часть x со знаком.
+    """
+    return external_call["modf", Float64, Float64, DTypePointer[DType.float64]](
+        x, intptr
+    )
