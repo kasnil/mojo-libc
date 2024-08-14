@@ -79,6 +79,7 @@ from libc.math import (
     tgammaf,
     logb,
     logbf,
+    nextafter,
 )
 import libc.fenv
 
@@ -829,3 +830,8 @@ fn test_logbf() raises:
     assert_true(isinf(logbf(inf[DType.float64]())))
     assert_true(isinf(logbf(neg_inf[DType.float64]())))
     assert_true(isinf(logbf(0)))
+
+
+fn test_nextafter() raises:
+    assert_true(isclose(nextafter(0.0, -1), -4.9406564584124654e-324))
+    assert_true(isclose(nextafter(0.0, 1), 4.9406564584124654e-32))

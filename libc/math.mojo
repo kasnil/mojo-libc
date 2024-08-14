@@ -1664,3 +1664,25 @@ fn logbf(x: Float32) -> Float32:
         Значение экспоненты x без смещения в виде целого числа со знаком, представленного как значение с плавающей запятой.
     """
     return external_call["logbf", Float32, Float32](x)
+
+
+fn nextafter(x: Float64, y: Float64) -> Float64:
+    """C library <math.h> function `nextafter`
+
+    Ссылка:
+        https://man7.org/linux/man-pages/man3/nextafter.3.html
+
+    Прототип:
+        double nextafter(double x, double y)
+
+    Описание:
+        Вычисляет следующее представимое значение с плавающей точкой с двойной точностью после x в направлении y.
+
+    Аргументы:
+        x: Число, после которого необходимо найти следующее представимое число.
+        y: Число, указывающее направление поиска.
+
+    Возвращаемое значение:
+        Следующее представимое значение с плавающей точкой после x в направлении y.
+    """
+    return external_call["nextafter", Float64, Float64, Float64](x, y)
