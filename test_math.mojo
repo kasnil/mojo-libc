@@ -67,6 +67,8 @@ from libc.math import (
     ilogbf,
     frexp,
     frexpf,
+    ldexp,
+    ldexpf,
 )
 import libc.fenv
 
@@ -729,3 +731,15 @@ fn test_frexpf() raises:
     assert_equal(frexpf(0, expptr), 0)
     assert_equal(expptr.load(), 0)
     expptr.free()
+
+
+fn test_ldexp() raises:
+    assert_equal(ldexp(0.625, 4), 10.0)
+    assert_equal(ldexp(0.625, 12), 2560.0)
+    assert_equal(ldexp(4.0, 3), 32.0)
+
+
+fn test_ldexpf() raises:
+    assert_equal(ldexpf(0.625, 4), 10.0)
+    assert_equal(ldexpf(0.625, 12), 2560.0)
+    assert_equal(ldexpf(4.0, 3), 32.0)

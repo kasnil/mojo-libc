@@ -1398,3 +1398,47 @@ fn frexpf(x: Float32, expptr: DTypePointer[DType.int32]) -> Float32:
     return external_call["frexpf", Float32, Float32, DTypePointer[DType.int32]](
         x, expptr
     )
+
+
+fn ldexp(x: Float64, exp: Int32) -> Float64:
+    """C library <math.h> function `ldexp`
+
+    Ссылка:
+        https://man7.org/linux/man-pages/man3/ldexp.3.html
+
+    Прототип:
+        double ldexp(double x, int exp)
+
+    Описание:
+        Умножает число с плавающей запятой на целую степень числа два. Возможна ошибка выхода за границы диапазона.
+
+    Аргументы:
+        x: Число с плавающей точкой.
+        exp: Степень 2 для умножения на x.
+
+    Возвращаемое значение:
+        При успешном выполнении функция возвращает значение x * 2^exp.
+    """
+    return external_call["ldexp", Float64, Float64, Int32](x, exp)
+
+
+fn ldexpf(x: Float32, exp: Int32) -> Float32:
+    """C library <math.h> function `ldexpf`
+
+    Ссылка:
+        https://man7.org/linux/man-pages/man3/ldexp.3.html
+
+    Прототип:
+        float ldexpf(float x, int exp)
+
+    Описание:
+        Умножает число с плавающей запятой на целую степень числа два. Возможна ошибка выхода за границы диапазона.
+
+    Аргументы:
+        x: Число с плавающей точкой.
+        exp: Степень 2 для умножения на x.
+
+    Возвращаемое значение:
+        При успешном выполнении функция возвращает значение x * 2^exp.
+    """
+    return external_call["ldexpf", Float32, Float32, Int32](x, exp)
