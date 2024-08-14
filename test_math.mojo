@@ -73,6 +73,7 @@ from libc.math import (
     modff,
     lgamma,
     lgammaf,
+    lgamma_r,
 )
 import libc.fenv
 
@@ -769,7 +770,18 @@ fn test_modff() raises:
 
 fn test_lgamma() raises:
     assert_true(isclose(lgamma(0.5), 0.5723649429247))
+    assert_true(isclose(lgamma(-0.5), 1.2655121234846))
 
 
 fn test_lgammaf() raises:
     assert_true(isclose(lgammaf(0.5), 0.5723649429247))
+    assert_true(isclose(lgammaf(-0.5), 1.2655121234846))
+
+
+fn test_lgamma_r() raises:
+    var signptr = DTypePointer[DType.int32].alloc(1)
+    assert_true(isclose(lgamma_r(0.5, signptr), 0.5723649429247))
+    assert_equal(signptr.load(), 1)
+    assert_true(isclose(lgamma_r(-0.5, signptr), 1.2655121234846))
+    assert_equal(signptr.load(), -1)
+    signptr.free()
