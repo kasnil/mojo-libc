@@ -86,6 +86,7 @@ from libc.math import (
     scalbln,
     scalblnf,
     scalbn,
+    scalbnf,
 )
 import libc.fenv
 
@@ -875,3 +876,8 @@ fn test_scalblnf() raises:
 fn test_scalbn() raises:
     assert_equal(scalbn(6.4, 3), 51.2)
     assert_true(isclose(scalbn(0.635987, 27), 85360730.177535996))
+
+
+fn test_scalbnf() raises:
+    assert_equal(scalbnf(6.4, 3), 51.2)
+    assert_equal(scalbnf(0.635987, 27), 85360728.0)
