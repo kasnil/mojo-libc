@@ -80,6 +80,7 @@ from libc.math import (
     logb,
     logbf,
     nextafter,
+    nextafterf,
 )
 import libc.fenv
 
@@ -835,3 +836,8 @@ fn test_logbf() raises:
 fn test_nextafter() raises:
     assert_true(isclose(nextafter(0.0, -1), -4.9406564584124654e-324))
     assert_true(isclose(nextafter(0.0, 1), 4.9406564584124654e-32))
+
+
+fn test_nextafterf() raises:
+    assert_true(isclose(nextafterf(0.0, -1), -1.4012984643248171e-45))
+    assert_true(isclose(nextafterf(0.0, 1), 1.4012984643248171e-45))

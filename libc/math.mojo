@@ -1686,3 +1686,25 @@ fn nextafter(x: Float64, y: Float64) -> Float64:
         Следующее представимое значение с плавающей точкой после x в направлении y.
     """
     return external_call["nextafter", Float64, Float64, Float64](x, y)
+
+
+fn nextafterf(x: Float32, y: Float32) -> Float32:
+    """C library <math.h> function `nextafterf`
+
+    Ссылка:
+        https://man7.org/linux/man-pages/man3/nextafter.3.html
+
+    Прототип:
+        float nextafterf(float x, float y)
+
+    Описание:
+        Вычисляет следующее представимое значение с плавающей точкой с одинарной точностью после x в направлении y.
+
+    Аргументы:
+        x: Число, после которого необходимо найти следующее представимое число.
+        y: Число, указывающее направление поиска.
+
+    Возвращаемое значение:
+        Следующее представимое значение с плавающей точкой после x в направлении y.
+    """
+    return external_call["nextafterf", Float32, Float32, Float32](x, y)
