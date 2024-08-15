@@ -82,6 +82,7 @@ from libc.math import (
     logbf,
     nextafter,
     nextafterf,
+    powf,
 )
 import libc.fenv
 
@@ -849,3 +850,10 @@ fn test_pow() raises:
     print(math.pow(-2.0, -2.0), 0.25)
     assert_true(isinf(math.pow(0, -2.0)))
     assert_true(isnan(math.pow(-2.0, -2.2)))
+
+
+fn test_powf() raises:
+    assert_equal(powf(2.0, 2.0), 4.0)
+    print(powf(-2.0, -2.0), 0.25)
+    assert_true(isinf(powf(0, -2.0)))
+    assert_true(isnan(powf(-2.0, -2.2)))

@@ -1730,3 +1730,25 @@ fn pow(x: Float64, y: Float64) -> Float64:
         Значение x^y. Для конечных значений x меньших, чем 0 и конечных нецелочисленных значений y, данные функции возвращают nan.
     """
     return external_call["pow", Float64, Float64, Float64](x, y)
+
+
+fn powf(x: Float32, y: Float32) -> Float32:
+    """C library <math.h> function `powf`
+
+    Ссылка:
+        https://man7.org/linux/man-pages/man3/pow.3.html
+
+    Прототип:
+        float powf(float x, float y)
+
+    Описание:
+        Возводят в степень y.
+
+    Аргументы:
+        x: Число, которое требуется возвести в степень.
+        y: Показатель степени.
+
+    Возвращаемое значение:
+        Значение x^y. Для конечных значений x меньших, чем 0 и конечных нецелочисленных значений y, данные функции возвращают nan.
+    """
+    return external_call["powf", Float32, Float32, Float32](x, y)
