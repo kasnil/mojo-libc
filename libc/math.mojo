@@ -1774,3 +1774,25 @@ fn scalbln(x: Float64, exp: Int64) -> Float64:
         Значение x × r^exp в случае успешного выполнения.
     """
     return external_call["scalbln", Float64, Float64, Int64](x, exp)
+
+
+fn scalblnf(x: Float32, exp: Int64) -> Float32:
+    """C library <math.h> function `scalblnf`
+
+    Ссылка:
+        https://man7.org/linux/man-pages/man3/scalbln.3.html
+
+    Прототип:
+        float scalblnf(float x, long exp)
+
+    Описание:
+        Вычисляет x × r^exp, где r является основанием системы счисления арифметики чисел с плавающей точкой устройства. Значение основание определяется константой FLT_RADIX определенной в библиотеке float.h.
+
+    Аргументы:
+        x: Число с плавающей точкой, которое требуется умножить на экспоненту.
+        exp: Показатель степени, который требуется применить к основанию системы счисления арифметики чисел с плавающей точкой устройства.
+
+    Возвращаемое значение:
+        Значение x × r^exp в случае успешного выполнения.
+    """
+    return external_call["scalblnf", Float32, Float32, Int64](x, exp)
