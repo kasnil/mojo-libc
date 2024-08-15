@@ -83,6 +83,7 @@ from libc.math import (
     nextafter,
     nextafterf,
     powf,
+    scalbln,
 )
 import libc.fenv
 
@@ -857,3 +858,8 @@ fn test_powf() raises:
     print(powf(-2.0, -2.0), 0.25)
     assert_true(isinf(powf(0, -2.0)))
     assert_true(isnan(powf(-2.0, -2.2)))
+
+
+fn test_scalbln() raises:
+    assert_equal(scalbln(6.4, 3), 51.2)
+    assert_true(isclose(scalbln(0.635987, 27), 85360730.177535996))
