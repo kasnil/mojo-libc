@@ -1708,3 +1708,25 @@ fn nextafterf(x: Float32, y: Float32) -> Float32:
         Следующее представимое значение с плавающей точкой после x в направлении y.
     """
     return external_call["nextafterf", Float32, Float32, Float32](x, y)
+
+
+fn pow(x: Float64, y: Float64) -> Float64:
+    """C library <math.h> function `pow`
+
+    Ссылка:
+        https://man7.org/linux/man-pages/man3/pow.3.html
+
+    Прототип:
+        double pow(double x, double y)
+
+    Описание:
+        Возводят в степень y.
+
+    Аргументы:
+        x: Число, которое требуется возвести в степень.
+        y: Показатель степени.
+
+    Возвращаемое значение:
+        Значение x^y. Для конечных значений x меньших, чем 0 и конечных нецелочисленных значений y, данные функции возвращают nan.
+    """
+    return external_call["pow", Float64, Float64, Float64](x, y)

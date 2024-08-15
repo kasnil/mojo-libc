@@ -1,5 +1,6 @@
 from testing import assert_equal, assert_true
 
+import libc.math
 from libc.math import (
     asin,
     asinf,
@@ -841,3 +842,10 @@ fn test_nextafter() raises:
 fn test_nextafterf() raises:
     assert_true(isclose(nextafterf(0.0, -1), -1.4012984643248171e-45))
     assert_true(isclose(nextafterf(0.0, 1), 1.4012984643248171e-45))
+
+
+fn test_pow() raises:
+    assert_equal(math.pow(2.0, 2.0), 4.0)
+    print(math.pow(-2.0, -2.0), 0.25)
+    assert_true(isinf(math.pow(0, -2.0)))
+    assert_true(isnan(math.pow(-2.0, -2.2)))
